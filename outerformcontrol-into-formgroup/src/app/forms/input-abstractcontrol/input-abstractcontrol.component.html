@@ -1,0 +1,10 @@
+<p>input-abstractcontrol works!</p>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <form-name2 [control]="formGroup.controls['name']"></form-name2><br/>
+  <form-gender2 [control]="formGroup.controls['gender']"></form-gender2><br/>
+  <form-type [control]="formGroup.controls['type']"></form-type><br/>
+  <button type="submit">Submit</button>
+</form>
+
+<div>{{result | json}}</div>

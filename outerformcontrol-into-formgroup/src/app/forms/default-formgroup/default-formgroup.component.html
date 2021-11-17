@@ -1,0 +1,26 @@
+<p>default-formgroup works!</p>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <label>Name: <input type="text" formControlName="name"></label><br/>
+  <label>Gender: <input type="checkbox" formControlName="gender"></label><br/>
+  <label>Type:
+  <select formControlName="type">
+    <option [ngValue]="'aaa'">AAA</option>
+    <option [ngValue]="'bbb'">BBB</option>
+    <option [ngValue]="'ccc'">CCC</option>
+    <option [ngValue]="'ddd'">DDD</option>
+    <option [ngValue]="'eee'">EEE</option>
+    <option [ngValue]="'fff'">FFF</option>
+    <option [ngValue]="'ggg'">GGG</option>
+    <option [ngValue]="'hhh'">HHH</option>
+    <option [ngValue]="'iii'">III</option>
+    <option [ngValue]="'jjj'">JJJ</option>
+    <option [ngValue]="'kkk'">KKK</option>
+  </select>
+</label>
+<br/>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div>{{result | json}}</div>

@@ -1,0 +1,10 @@
+<p>output-register-control works!</p>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <form-name (control)="addNameForm($event)"></form-name><br/>
+  <form-gender (control)="addGenderForm($event)"></form-gender><br/>
+  <form-select (control)="addTypeForm($event)"></form-select><br/>
+  <button type="submit">Submit</button>
+</form>
+
+<div>{{result | json}}</div>
