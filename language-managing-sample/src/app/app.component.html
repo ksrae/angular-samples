@@ -1,0 +1,9 @@
+<h1>{{'language' | translate }} </h1>
+
+<button (click)="change($event)">Change</button>
+
+<h3>
+  {{'test' | translate:
+    { value: ('translate' | translate)}
+  }}
+</h3>
