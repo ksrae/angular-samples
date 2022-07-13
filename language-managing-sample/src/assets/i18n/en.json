@@ -1,0 +1,5 @@
+{
+  "language": "english",
+  "test": "test {{value}}",
+  "translate": "translate"
+}
