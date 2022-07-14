@@ -1,0 +1,13 @@
+<button (click)="sendMessage()">send</button>
+
+<p>socker in Angular</p>
+<ng-container *ngIf="{message: responseMessage$ | async, broadcast: responseBroadcast$ | async} as res">
+  <p> {{res.message?.data}} </p>
+  <p> {{res.broadcast?.data}} </p>
+</ng-container>
+
+<p>socker in worker</p>
+<ng-container *ngIf="{msg: resWkMsg$ | async, brc: resWkbrc$ | async} as worker">
+  <p> {{ worker.msg?.data}} </p>
+  <p> {{ worker.brc?.data}} </p>
+</ng-container>
