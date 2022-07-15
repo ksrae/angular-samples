@@ -1,4 +1,13 @@
-<button (click)="sendMessage()">send</button>
+
+
+<a routerLink="main">MAIN</a>
+<br/>
+<a routerLink="sub">SUB</a>
+<br/>
+<br/>
+<router-outlet></router-outlet>
+
+<!-- <button (click)="sendMessage()">send</button>
 
 <p>socker in Angular</p>
 <ng-container *ngIf="{message: responseMessage$ | async, broadcast: responseBroadcast$ | async} as res">
@@ -11,3 +20,4 @@
   <p> {{ worker.msg?.data}} </p>
   <p> {{ worker.brc?.data}} </p>
 </ng-container>
+ -->

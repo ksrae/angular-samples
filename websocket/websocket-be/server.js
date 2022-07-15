@@ -1,6 +1,6 @@
 const WebSocket = require('ws')
 
-const wss = new WebSocket.Server({ port: 8001 });
+const wss = new WebSocket.Server({ port: 8002 });
 let timer = 0;
 let timer2 = 0;
 wss.on('connection', ws => {
@@ -18,7 +18,7 @@ wss.on('connection', ws => {
         code: 0,
         data: {
           userId: data.data.id,
-          text: `8001 server get ${timer++} message from ${data.data.id}`
+          text: `8002 server get ${timer++} message from ${data.data.id}`
         }
       })
     );
