@@ -1,0 +1,14 @@
+<p>sub works</p>
+
+<button (click)="connect()">Connect</button>
+<button (click)="sendMessageA()">send To A</button>
+<button (click)="getASocketState()">A State</button>
+
+<button (click)="sendMessageB()">send To B</button>
+<button (click)="getBSocketState()">B State</button>
+
+<p>socker in worker</p>
+<ng-container *ngIf="{amsg: aresWkMsg$ | async, bmsg: bresWkMsg$ | async } as worker">
+  <p> {{ worker.amsg?.data | json}} </p>
+  <p> {{ worker.bmsg?.data | json}} </p>
+</ng-container>

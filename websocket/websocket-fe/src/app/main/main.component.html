@@ -1,0 +1,11 @@
+
+<p>main works</p>
+
+<button (click)="connect()">Connect</button>
+<button (click)="sendMessage()">send</button>
+<button (click)="getSocketState()">State</button>
+
+<p>socker in worker</p>
+<ng-container *ngIf="{msg: resWkMsg$ | async } as worker">
+  <p> {{ worker.msg?.data | json}} </p>
+</ng-container>
