@@ -6,11 +6,11 @@ import { Subject } from "rxjs";
  * injectable하지 않으므로 여러 소켓을 사용해야 하는 경우 각각의 서비스를 만들어 이 workerController를 인스턴스화해서 사용하면 됩니다.
  *
  * @export
- * @class WorkerController
+ * @class SocketController
  */
-export class WorkerController {
+export class SocketController {
   #url!: string;
-  #wk = new Worker('/assets/worker/network-worker.js');
+  #wk = new Worker('./network-worker.js');
   message$ = new Subject();
 
   constructor(
@@ -19,8 +19,7 @@ export class WorkerController {
     this.#url = webSocketUrl;
 
     this.#wk.onmessage = (e: any) => {
-      console.log('received from worker', {e});
-
+      // console.log('received from worker', {e});
       this.message$.next(e.data);
     }
 
@@ -28,7 +27,6 @@ export class WorkerController {
     if(this.#url?.length > 0) {
       this.connect(this.#url);
     }
-
   }
 
   /**
@@ -38,7 +36,6 @@ export class WorkerController {
    * @memberof WorkerController
    */
   connect(url: string): void {
-    console.warn('connect');
     this.#wk.postMessage({
       type: 'connect',
       data: url
@@ -50,7 +47,6 @@ export class WorkerController {
    * @memberof WorkerController
    */
   getState() {
-    console.warn('getState');
     this.#wk.postMessage({
       type: 'state',
       data: ''
@@ -63,7 +59,6 @@ export class WorkerController {
    * @memberof WorkerController
    */
   send(data: unknown) {
-    console.warn('send');
     this.#wk.postMessage(
       { type: 'send',
         data
