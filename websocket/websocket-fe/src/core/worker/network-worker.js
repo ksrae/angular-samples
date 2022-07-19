@@ -1,9 +1,7 @@
 let _url = '';
-// let url = 'ws://localhost:8001';
 let _ws;
 
 onmessage = function(e) {
-
   switch(e.data.type) {
     // connecting to WebSocket
     case 'connect':
@@ -12,6 +10,8 @@ onmessage = function(e) {
 
       if(_ws.readyState === WebSocket.CONNECTING) {
         returnMessage('success', 'connected');
+      } else {
+        returnMessage('error', 'no connection', 1);
       }
       break;
 
@@ -23,8 +23,8 @@ onmessage = function(e) {
     // send message to server by websocket
     // if not ready, return error
     case 'send':
-      if(!_url || !_ws.readyState === WebSocket.OPEN) {
-        returnMessage('error', 'not connected', 1);
+      if(!_url || _ws.readyState !== WebSocket.OPEN) {
+        returnMessage('error', 'no connection', 1);
       }
 
       _ws.send(
@@ -38,22 +38,16 @@ onmessage = function(e) {
 
   // response from server
   _ws.onmessage = (e) => {
-    console.log({e});
-
     const response = JSON.parse(e.data);
     returnMessage('success', response);
-
   }
 
   // websocket close
   _ws.onclose = (e) => {
-    returnMessage('close', 'close', 999);
+    returnMessage('close', '', 999);
   }
 
-
-  console.log('Worker: Message received from main script', {e});
-
-
+  // console.log('Worker: Message received from main script', {e});
 }
 
 returnMessage = function(type, data, code = 0) {
