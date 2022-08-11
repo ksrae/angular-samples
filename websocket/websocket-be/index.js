@@ -1,10 +1,13 @@
 const WebSocket = require('ws')
 
 const wss = new WebSocket.Server({ port: 8001 });
-let timer = 0;
+
 let timer2 = 0;
 wss.on('connection', ws => {
-
+  let timer = 0;
+  // console.log('connection:', {ws});
+  console.log('total Connection:', wss.clients.size);
+  
   // get message from client
   ws.on('message', message => {
     console.log(`server receive a message => ${message}`);
@@ -53,16 +56,16 @@ wss.on('connection', ws => {
   });
 
   // response to client each millisecond test
-  // setInterval(() => {
-  //   timer += 1;
-  //   ws.send(
-  //     JSON.stringify({
-  //       result: 'success',
-  //       code: 0,
-  //       data: `tick ${timer.toString()}`
-  //     })
-  //   )
-  // }, 1);
+  setInterval(() => {
+    timer += 1;
+    ws.send(
+      JSON.stringify({
+        result: 'success',
+        code: 0,
+        data: `tick ${timer.toString()}`
+      })
+    )
+  }, 1000);
 
   // setInterval(() => {
   //   timer2+=1;

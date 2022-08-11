@@ -8,7 +8,7 @@ import { NetworkResponse } from "./network.service";
 })
 export class BSocketService {
   wws$ = new Observable<NetworkResponse>();
-  sc = new SocketController('ws://localhost:8002');
+  sc = new SocketController();
 
   constructor(
   ) {

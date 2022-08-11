@@ -1,0 +1,12 @@
+{
+  "hello": "hello world",
+  "result": "{{val}} {{saveload}} {{action}}",
+  "value1": "Value 1",
+  "value2": "Value 2",
+  "value3": "Value 3",
+  "value4": "Value 4",
+  "save": "store",
+  "load": "load",
+  "success": "success",
+  "fail": "fail"
+}

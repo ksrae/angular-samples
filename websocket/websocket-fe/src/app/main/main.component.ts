@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.resWkMsg$ = this.aSocketService.wws$;
+    this.resWkMsg$ = this.aSocketService.socketResponse$;
     // .pipe(
     //   // filter((response: NetworkResponse) => response.code === 0),
     //   map(response => response)

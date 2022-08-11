@@ -1,0 +1,12 @@
+{
+  "hello": "헬로 월드",
+  "result": "{{val}} {{saveload}} {{action}}",
+  "value1": "값1",
+  "value2": "값2",
+  "value3": "값3",
+  "value4": "값4",
+  "save": "저장",
+  "load": "로드",
+  "success": "성공",
+  "fail": "실패"
+}

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 
 export interface NetworkResponse {
-  result: 'success' | 'close' | 'error';
+  result: 'success' | 'close' | 'error' | 'timeout';
   code: number;
   data: string;
 }

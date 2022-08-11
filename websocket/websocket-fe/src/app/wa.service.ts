@@ -19,6 +19,7 @@ export class ASocketService {
 
   connect(): void {
     this.sc.connect('ws://localhost:8001');
+    // this.sc.connect('ws://fs-rd-dev-fw01:20001/ws?username=aaaa');
   }
   getState() {
     this.sc.getState();

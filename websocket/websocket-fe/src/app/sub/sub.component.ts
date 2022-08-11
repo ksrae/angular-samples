@@ -22,7 +22,7 @@ export class SubComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.aresWkMsg$ = this.aSocketService.wws$;
+    this.aresWkMsg$ = this.aSocketService.socketResponse$;
     this.bresWkMsg$ = this.bSocketService.wws$;
     // .pipe(
     //   // filter((response: NetworkResponse) => response.code === 0),
@@ -31,8 +31,10 @@ export class SubComponent implements OnInit {
 
   }
 
-  connect() {
+  connectA() {
     this.aSocketService.connect();
+  }
+  connectB() {
     this.bSocketService.connect();
   }
 
@@ -42,7 +44,7 @@ export class SubComponent implements OnInit {
 
   sendMessageA() {
     this.aSocketService.send({
-      id: 2,
+      id: 1,
       text: 'aaaaaaa'
     })
   }
@@ -54,5 +56,4 @@ export class SubComponent implements OnInit {
   sendMessageB() {
     this.bSocketService.send()
   }
-
 }
