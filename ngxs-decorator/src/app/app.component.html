@@ -1,0 +1,16 @@
+<span>Total Count: </span>
+<p>{{totalCount$ | async}}</p>
+<br/>
+
+
+
+<button (click)="increment()">Increment</button>
+<br/>
+<button (click)="setCount()">Set Count</button>
+<br/>
+<button (click)="sendMessage()">Send Message</button>
+<br/>
+<span>message: </span>
+<ng-container *ngFor="let message of (messages$ | async)">
+  <p>{{message | json}}</p>
+</ng-container>
