@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import DraggablePoints from 'highcharts/modules/draggable-points';
 
@@ -14,6 +14,9 @@ export class CustomTooltipComponent implements OnInit {
 
   chart: any;
 
+  constructor(
+    private cd: ChangeDetectorRef
+  ) {}
   ngOnInit() {
     this.createChartLine();
   }
@@ -43,14 +46,18 @@ export class CustomTooltipComponent implements OnInit {
       }],
       plotOptions: {
         series: {
+          allowPointSelect: true,
+          animation: false,
           point: {
             events: {
               click: (p: any) => {
                 console.log({p})
+
                 if(this.chart.customTooltip) {
                   // this.chart.customTooltip.destroy();
                   this.chart.customTooltip = undefined;
                 }
+
 
                 this.chart.customTooltip = this.chart.renderer.label(
                   'tooltip',
@@ -66,33 +73,30 @@ export class CustomTooltipComponent implements OnInit {
                     color: 'white'
                 })
                 .add();
-          }
-                // var point = this,
-                //   chart = this.series.chart;
+              },
+              select: (s: any) => {
+                console.log({s});
+                const selectPoints = this.chart.getSelectedPoints();
+                console.log({selectPoints})
+                console.log(this.chart.series[0]);
+                selectPoints[0].color = 'red';
+                // selectPoints[0].update({
+                //   redraw: true, animation: false
+                // });
+              //   s.target.update({
+              //     marker: {
+              //         states: {
+              //             select:{
+              //                 lineWidth: 1.5,
+              //                 lineColor: 'blue'
+              //             }
+              //         }
+              //     }
+              // }, true);
 
-                // if (chart.customTooltip) { // destroy the old one when rendering new
-                //   chart.customTooltip.destroy();
-                //   chart.customTooltip = undefined;
-                // }
+              },
+            },
 
-                // chart.customTooltip = chart.renderer.label( // render tooltip
-                //     point.series.name + ': <strong>' + point.y + '</strong>', // tooltip's content
-                //     chart.plotLeft + point.plotX, // point.x
-                //     chart.plotTop + point.plotY // point.y
-                //   )
-                //   .attr({ // style tooltip
-                //     'stroke-width': 1,
-                //     zIndex: 8,
-                //     stroke: point.series.color,
-                //     padding: 8,
-                //     r: 3,
-                //     fill: 'rgb(247, 247, 247)'
-                //   })
-                //   .add(chart.rGroup)
-
-                // chart.rGroup.translate(-chart.customTooltip.width / 2, -chart.customTooltip.height - 15).toFront() // translate(-50%, -50%)
-
-            }
           }
         }
       },
