@@ -15,8 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-sample/store": ["libs/store/src/index.ts"],
-      "@nx-sample/ui": ["libs/ui/src/index.ts"]
+      "@nx-sample/services/configuration": [
+        "libs/services/configuration/src/index.ts"
+      ],
+      "@nx-sample/ui/welcome": ["libs/ui/welcome/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

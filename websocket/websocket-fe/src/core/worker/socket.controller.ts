@@ -5,6 +5,7 @@ export class SocketController {
   private readonly protocol!: string[];
   private readonly wk!: Worker;
   message$ = new Subject();
+  isconnected!: boolean;
 
   constructor(
     public webSocketUrl: string = '',
@@ -15,6 +16,9 @@ export class SocketController {
     this.wk = new Worker(URL.createObjectURL(new Blob([`(${webWorker})()`], {type: 'text/javascript'})));
 
     this.wk.onmessage = (e: any) => {
+      if(e.data.type === 'connect') {
+        this.isconnected = true;
+      }
       this.message$.next(e.data);
     }
 
@@ -29,13 +33,15 @@ export class SocketController {
    * @param {string} websocketUrl
    */
   connect(websocketUrl: string, protocol: string[] = []): void {
-    this.wk.postMessage({
-      type: 'connect',
-      data: {
-        url: websocketUrl,
-        protocol: protocol
-      }
-    })
+    if(!this.isconnected) {
+      this.wk.postMessage({
+        type: 'connect',
+        data: {
+          url: websocketUrl,
+          protocol: protocol
+        }
+      })
+    }
   }
 
   /** get readyState from websocket */
@@ -50,9 +56,9 @@ export class SocketController {
    * @param {unknown} data
    */
   send(data: unknown) {
-    this.wk.postMessage(
-      { type: 'send',
-        data
+    this.wk.postMessage({
+      type: 'send',
+      data
       }
     );
   }
@@ -83,35 +89,42 @@ function webWorker() {
         _ws = new WebSocket(_url, _protocol);
 
         if(_ws.readyState === WebSocket.CONNECTING) {
-          returnMessage('success', 'connected');
+          console.log('connect');
+          returnMessage('connect', true);
         } else {
+          console.log('no connect');
           returnMessage('error', 'no connection', 1);
         }
         break;
 
       // return websocket readyState
       case 'state':
-        returnMessage('success', _ws.readyState);
+        returnMessage('state', _ws.readyState);
         break;
 
       // send message to server by websocket
       // if not ready, return error
       case 'send':
+
         if(!_url || _ws.readyState !== WebSocket.OPEN) {
           returnMessage('error', 'no connection', 1);
         }
 
         _performanceTime = performance.now();
+
+        console.log(data);
+
         _ws.send(
           JSON.stringify({
             data: data.data
-          }
-        ));
+          })
+        );
         break;
     }
 
     // response from server
     _ws.onmessage = (e: MessageEvent) => {
+
       // timeout test
       // if(_performanceTime != undefined && _performanceTime > 0) {
       //   let responseTime = performance.now() - _performanceTime;
@@ -128,9 +141,13 @@ function webWorker() {
       //   const response = JSON.parse(e.data);
       //   returnMessage('success', response);
       // }
-
+      console.log('response', {e});
       const response = JSON.parse(e.data);
       returnMessage('success', response);
+    }
+
+    _ws.onerror = (e: any) => {
+      console.log('error', {e});
     }
 
     // websocket close
@@ -150,3 +167,25 @@ function webWorker() {
       });
   }
 }
+// {
+//   "recipeId":"N/A",
+//   "productId":"PROD5",
+//   "recipeStepId":"N/A",
+//   "operationId":"OPER5",
+//   "cassetteSlot":"N/A",
+//   "lotId":"N/A",
+//   "substrateId":"N/A",
+//   "parameterList":
+//   [
+//     {
+//       "variableId":"2005",
+//       "value":0,
+//       "time":1661397937694
+//     },
+//     {
+//       "variableId":"2003",
+//       "value":0,
+//       "time":1661397937694
+//     }
+//   ]
+// }

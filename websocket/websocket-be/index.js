@@ -81,9 +81,12 @@ wss.on('connection', ws => {
   // }, 1)
 
   // handshake response to client
-  ws.send(
-    JSON.stringify({
-      data: 'server websocket is connected'
-    })
-  );
+  setTimeout(() => {
+    ws.send(
+      JSON.stringify({
+        data: 'server websocket is connected'
+      })
+    );    
+  }, 2000);
+
 });

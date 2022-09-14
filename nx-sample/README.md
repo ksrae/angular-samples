@@ -42,7 +42,7 @@ There are also many [community plugins](https://nx.dev/community) you could add.
 ## Generate an application
 
 Run `ng g @nrwl/angular:app my-app` to generate an application.
-'npx nx g @nrwl/angular:app my-app'
+
 > You can use any of the plugins above to generate applications as well.
 
 When using Nx, you can create multiple applications and libraries in the same workspace.
@@ -50,7 +50,7 @@ When using Nx, you can create multiple applications and libraries in the same wo
 ## Generate a library
 
 Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-'npx nx g @nrwl/angular:lib my-lib'
+
 > You can also use any of the plugins above to generate libraries as well.
 
 Libraries are shareable across libraries and applications. They can be imported from `@nx-sample/mylib`.

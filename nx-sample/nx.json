@@ -31,16 +31,16 @@
     "@nrwl/angular:application": {
       "style": "scss",
       "linter": "eslint",
-      "unitTestRunner": "jest",
+      "unitTestRunner": "none",
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "none"
     },
     "@nrwl/angular:component": {
       "style": "scss"
     }
   },
-  "defaultProject": "sample-app"
+  "defaultProject": "main-main-app"
 }
