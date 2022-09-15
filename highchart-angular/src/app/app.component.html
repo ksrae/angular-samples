@@ -1,10 +1,7 @@
 <div class="container-fluid py-3">
   <h1>Angular Highcharts</h1>
 
+<a [routerLink]="['/line']"[routerLinkActive]="'active'">LINE</a>
+<br/>
+  <router-outlet></router-outlet>
 
-    <div class="col-6">
-      <div id="chart-line"></div>
-    </div>
-
-  </div>
-  <button id="button" class="autocompare" (click)="getSelectedPoints($event)">Get selected points</button>
