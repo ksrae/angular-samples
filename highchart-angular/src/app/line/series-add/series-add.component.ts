@@ -3,12 +3,12 @@ import * as Highcharts from 'highcharts';
 
 
 @Component({
-  selector: 'app-add-series',
-  templateUrl: './add-series.component.html',
-  styleUrls: ['./add-series.component.scss'],
+  selector: 'app-series-add',
+  templateUrl: './series-add.component.html',
+  styleUrls: ['./series-add.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddSeriesComponent implements OnInit {
+export class SeriesAddComponent implements OnInit {
 
   chart: any;
 

@@ -67,7 +67,7 @@ export class MarkerComponent implements OnInit {
       },
       plotOptions: {
           series: {
-            allowPointSelect: false,
+            allowPointSelect: true,
             borderWidth: 0,
             dataLabels: {
               enabled: true
