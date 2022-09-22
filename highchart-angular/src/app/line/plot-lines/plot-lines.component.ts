@@ -31,10 +31,17 @@ export class PlotLinesComponent implements OnInit {
             color: '#FF0000',
             width: 2,
             value: 5.5,
-            id: 'myPlotLineId'
+            id: 'myPlotLineIdx'
         }]
       },
-
+      yAxis: {
+        plotLines: [{
+          color: '#FF0000',
+          width: 2,
+          value: 150,
+          id: 'myPlotLineIdy'
+        }]
+      },
       series: [{
           data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
       }],
@@ -45,16 +52,29 @@ export class PlotLinesComponent implements OnInit {
           point: {
             events: {
               mouseOver: (e: any) => {
-                this.chart.xAxis[0].removePlotLine('myPlotLineId');
+                console.log({e}, e.point);
+
+              },
+              click: (e: any) => {
+                console.log({e}, e.point);
+                this.chart.xAxis[0].removePlotLine('myPlotLineIdx');
+                this.chart.yAxis[0].removePlotLine('myPlotLineIdy');
 
                 this.chart.xAxis[0].addPlotLine({
-                    value: e.target.x,
+                    value: e.point.x,
                     color: 'red',
                     width: 2,
                     dashStyle: 'dash',
-                    id: 'myPlotLineId'
+                    id: 'myPlotLineIdx'
                 });
 
+                this.chart.yAxis[0].addPlotLine({
+                  value: e.point.y,
+                  color: 'red',
+                  width: 2,
+                  dashStyle: 'dash',
+                  id: 'myPlotLineIdy'
+              });
               }
             }
           }
