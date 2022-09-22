@@ -24,26 +24,41 @@ export class PlotLinesComponent implements OnInit {
         marginRight: 50,
       },
 
-      xAxis: {
+      xAxis: [{
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 
         plotLines: [{
             color: '#FF0000',
             width: 2,
             value: 5.5,
-            id: 'myPlotLineIdx'
+            id: 'myPlotLineId'
         }]
       },
+    {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].reverse(),
+
+      plotLines: [{
+          color: '#00ff00',
+          width: 2,
+          value: 7,
+          id: 'myPlotLineId'
+      }]
+    }],
       yAxis: {
         plotLines: [{
           color: '#FF0000',
           width: 2,
           value: 150,
-          id: 'myPlotLineIdy'
+          id: 'myPlotLineId'
         }]
       },
       series: [{
-          data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+        xAxis: 0
+      },
+      {
+        data: [148.5, 216.4, 194.1, 95.6, 54.4, 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
+        xAxis: 1
       }],
 
       plotOptions: {
@@ -52,28 +67,48 @@ export class PlotLinesComponent implements OnInit {
           point: {
             events: {
               mouseOver: (e: any) => {
-                console.log({e}, e.point);
+              //   this.chart.xAxis[0].removePlotLine('myPlotLineIdx');
+              //   this.chart.yAxis[0].removePlotLine('myPlotLineIdy');
 
+              //   this.chart.xAxis[0].addPlotLine({
+              //       value: e.target.x,
+              //       color: 'red',
+              //       width: 2,
+              //       dashStyle: 'dash',
+              //       id: 'myPlotLineIdx'
+              //   });
+
+              //   this.chart.yAxis[0].addPlotLine({
+              //     value: e.target.y,
+              //     color: 'red',
+              //     width: 2,
+              //     dashStyle: 'dash',
+              //     id: 'myPlotLineIdy'
+              // });
               },
               click: (e: any) => {
                 console.log({e}, e.point);
-                this.chart.xAxis[0].removePlotLine('myPlotLineIdx');
-                this.chart.yAxis[0].removePlotLine('myPlotLineIdy');
+                for(let xAxis of this.chart.xAxis) {
+                  xAxis.removePlotLine('myPlotLineId');
+                }
+                for(let yAxis of this.chart.yAxis) {
+                  yAxis.removePlotLine('myPlotLineId');
+                }
 
                 this.chart.xAxis[0].addPlotLine({
                     value: e.point.x,
-                    color: 'red',
+                    color: 'green',
                     width: 2,
                     dashStyle: 'dash',
-                    id: 'myPlotLineIdx'
+                    id: 'myPlotLineId'
                 });
 
                 this.chart.yAxis[0].addPlotLine({
                   value: e.point.y,
-                  color: 'red',
+                  color: 'green',
                   width: 2,
                   dashStyle: 'dash',
-                  id: 'myPlotLineIdy'
+                  id: 'myPlotLineId'
               });
               }
             }
