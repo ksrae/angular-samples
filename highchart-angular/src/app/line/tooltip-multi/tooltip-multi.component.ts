@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import * as Highcharts from 'highcharts';
 
 @Component({
-  selector: 'app-multi-tooltip',
-  templateUrl: './multi-tooltip.component.html',
-  styleUrls: ['./multi-tooltip.component.scss'],
+  selector: 'app-tooltip-multi',
+  templateUrl: './tooltip-multi.component.html',
+  styleUrls: ['./tooltip-multi.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MultiTooltipComponent implements OnInit {

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomTooltipComponent } from './custom-tooltip/custom-tooltip.component';
+import { CustomTooltipComponent } from './tooltip-customized/tooltip-customized.component';
 import { DrilldownComponent } from './drilldown/drilldown.component';
 import { GetpointComponent } from './getpoint/getpoint.component';
 import { LineComponent } from './line.component';
 import { MarkerComponent } from './marker/marker.component';
-import { MultiTooltipComponent } from './multi-tooltip/multi-tooltip.component';
+import { MultiTooltipComponent } from './tooltip-multi/tooltip-multi.component';
 import { MultixAxisComponent } from './axis/multi-xaxis/multi-xaxis.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { XaxisLinktoComponent } from './axis/xaxis-linkto/xaxis-linkto.component';

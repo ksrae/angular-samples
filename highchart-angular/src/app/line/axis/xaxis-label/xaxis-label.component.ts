@@ -42,6 +42,5 @@ export class XaxisLabelComponent implements OnInit {
 
   change() {
     this.chart.xAxis[0].setCategories([1,2,3,4,5,6,7,8,9,10, 11, 12], true);
-
   }
 }

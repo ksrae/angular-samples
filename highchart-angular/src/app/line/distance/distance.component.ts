@@ -34,6 +34,7 @@ export class LineDistanceComponent implements OnInit {
                 this.chart.getSelectedPoints()[i].select(false);
               }
 
+              this.chart.plotOptions.series.allowPointSelect = false;
             }
 
           }

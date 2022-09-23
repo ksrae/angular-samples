@@ -31,19 +31,19 @@ export class PlotLinesComponent implements OnInit {
             color: '#FF0000',
             width: 2,
             value: 5.5,
-            id: 'myPlotLineId'
+            id: 'myPlotLineIdx'
         }]
       },
-    {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].reverse(),
+      {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].reverse(),
 
-      plotLines: [{
+       plotLines: [{
           color: '#00ff00',
           width: 2,
           value: 7,
           id: 'myPlotLineId'
-      }]
-    }],
+        }]
+      }],
       yAxis: {
         plotLines: [{
           color: '#FF0000',
@@ -100,7 +100,7 @@ export class PlotLinesComponent implements OnInit {
                     color: 'green',
                     width: 2,
                     dashStyle: 'dash',
-                    id: 'myPlotLineId'
+                    id: 'myPlotLineIdx'
                 });
 
                 this.chart.yAxis[0].addPlotLine({

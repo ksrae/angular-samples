@@ -5,9 +5,9 @@ import DraggablePoints from 'highcharts/modules/draggable-points';
 DraggablePoints(Highcharts);
 
 @Component({
-  selector: 'app-custom-tooltip',
-  templateUrl: './custom-tooltip.component.html',
-  styleUrls: ['./custom-tooltip.component.scss'],
+  selector: 'app-tooltip-customized',
+  templateUrl: './tooltip-customized.component.html',
+  styleUrls: ['./tooltip-customized.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomTooltipComponent implements OnInit {
