@@ -20,6 +20,7 @@ import { SeriesMultiColorComponent } from './series-multi-color/series-multi-col
 import { XaxisLabelComponent } from './axis/xaxis-label/xaxis-label.component';
 import { AxisShiftComponent } from './axis/axis-shift/axis-shift.component';
 import { AxisShift2Component } from './axis/axis-shift2/axis-shift2.component';
+import { OverlayblankComponent } from './overlayblank/overlayblank.component';
 
 const routes: Routes = [
   { path: '', component: LineComponent, children: [
@@ -42,6 +43,7 @@ const routes: Routes = [
     { path: 'boost', component: GpuBoostComponent},
     { path: 'dragbg', component: DragBackgroundComponent},
     { path: 'multicolor', component: SeriesMultiColorComponent},
+    { path: 'overlay', component: OverlayblankComponent},
 
   ]},
 

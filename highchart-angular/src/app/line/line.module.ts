@@ -22,6 +22,7 @@ import { AxisShiftComponent } from './axis/axis-shift/axis-shift.component';
 import { AxisShift2Component } from './axis/axis-shift2/axis-shift2.component';
 import { CustomTooltipComponent } from './tooltip-customized/tooltip-customized.component';
 import { MultiTooltipComponent } from './tooltip-multi/tooltip-multi.component';
+import { OverlayblankComponent } from './overlayblank/overlayblank.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { MultiTooltipComponent } from './tooltip-multi/tooltip-multi.component';
     SeriesMultiColorComponent,
     AxisShiftComponent,
     AxisShift2Component,
+    OverlayblankComponent,
 
   ],
   imports: [
