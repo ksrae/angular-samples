@@ -18,21 +18,24 @@ export class PointDirective implements AfterViewInit {
 
  ngAfterViewInit(): void {
   const canvas = document.createElement('canvas');
-  canvas.setAttribute('height', '500');
-  canvas.setAttribute('width', '500');
+  canvas.setAttribute('height', '2000');
+  canvas.setAttribute('width', '2000');
   canvas.style.cssText = 'position:fixed;'
 
-  this.renderer.appendChild(this.el.nativeElement , canvas);
-
+  console.log(this.el);
+  // this.renderer.appendChild(this.el.nativeElement , canvas);
+  this.renderer.insertBefore(this.el.nativeElement.parentNode, canvas, this.el.nativeElement.parentNode.firstChild);
+  // this.renderer.insertBefore(this.el.nativeElement.parentNode, canvas, this.el.nativeElement);
   this.drawLine(canvas);
  }
   private drawLine(canvas: HTMLCanvasElement) {
-    console.log('el', this.el);
+    console.log('el', this.el, this.el.nativeElement.getBoundingClientRect());
 
     if(!canvas.getContext) {
       return ;
     }
 
+    const elPoint = this.el.nativeElement.getBoundingClientRect();
     console.log('from:', this.from, 'to:', this.to);
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
@@ -41,9 +44,10 @@ export class PointDirective implements AfterViewInit {
 
     ctx?.beginPath();
     ctx?.moveTo(this.from[0], this.from[1]);
-    ctx?.lineTo(this.to[0], this.to[1]);
+    ctx?.lineTo(500, 300);
     ctx?.stroke();
   }
+
 
   // @HostListener('click', ['$event']) elementClick(e) {
   //   // e안에는 event객체가 들어온다.
