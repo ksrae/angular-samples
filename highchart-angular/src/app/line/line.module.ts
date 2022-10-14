@@ -15,7 +15,6 @@ import { LineDistanceComponent } from './distance/distance.component';
 import { GpuBoostComponent } from './gpu-boost/gpu-boost.component';
 import { PlotLinesComponent } from './plot-lines/plot-lines.component';
 import { SeriesVisibleComponent } from './series-visible/series-visible.component';
-import { DragBackgroundComponent } from './drag-background/drag-background.component';
 import { SeriesMultiColorComponent } from './series-multi-color/series-multi-color.component';
 import { XaxisLabelComponent } from './axis/xaxis-label/xaxis-label.component';
 import { AxisShiftComponent } from './axis/axis-shift/axis-shift.component';
@@ -23,6 +22,8 @@ import { AxisShift2Component } from './axis/axis-shift2/axis-shift2.component';
 import { CustomTooltipComponent } from './tooltip-customized/tooltip-customized.component';
 import { MultiTooltipComponent } from './tooltip-multi/tooltip-multi.component';
 import { OverlayblankComponent } from './overlayblank/overlayblank.component';
+import { DragPointComponent } from './drag/drag-point/drag-point.component';
+import { DragPointMultiDimensionComponent } from './drag/drag-point-multi-dimension/drag-point-multi-dimension.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { OverlayblankComponent } from './overlayblank/overlayblank.component';
     TooltipComponent,
     CustomTooltipComponent,
     MultiTooltipComponent,
-    DragBackgroundComponent,
+    DragPointComponent,
+    DragPointMultiDimensionComponent,
     SeriesMultiColorComponent,
     AxisShiftComponent,
     AxisShift2Component,

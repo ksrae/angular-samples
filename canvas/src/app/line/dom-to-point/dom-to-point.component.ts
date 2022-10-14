@@ -1,4 +1,6 @@
-import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, Component, ContentChild, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { TooltipContainerComponent } from './tooltip-container/tooltip-container.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 @Component({
   selector: 'app-dom-to-point',
@@ -7,9 +9,19 @@ import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, Component, Co
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DomToPointComponent implements OnInit, AfterContentInit, AfterViewInit {
-  // @ViewChild('canvas') public canvas!: ElementRef;
+  @ViewChild('area', {
+    read: ViewContainerRef
+  }) viewContainerRef!: ViewContainerRef
 
-  constructor() { }
+
+
+  mode: string = 'single';
+
+  componentList: any[] = [];
+
+  constructor(
+    // public viewContainerRef: ViewContainerRef
+  ) { }
 
   ngOnInit(): void {
 
@@ -23,20 +35,41 @@ export class DomToPointComponent implements OnInit, AfterContentInit, AfterViewI
     // this.drawLine();
   }
 
-  // drawLine() {
-  //   if(!this.canvas?.nativeElement || !this.canvas?.nativeElement?.getContext) {
-  //     return ;
-  //   }
 
-  //   const ctx = this.canvas?.nativeElement?.getContext("2d");
+  createTooltip(from: number[]) {
+    console.log('mode', this.mode);
 
-  //   ctx.strokeStyle = 'red';
-  //   ctx.lineWidth = 3;
+    if(this.mode === 'single') {
+      this.clearTooltip();
+    }
 
-  //   ctx.beginPath();
-  //   ctx.moveTo(0,0);
-  //   ctx.lineTo(500, 500);
-  //   ctx.stroke();
-  // }
+    const componentRef = this.viewContainerRef.createComponent<TooltipContainerComponent>(TooltipContainerComponent);
+    componentRef.instance.position = {
+      from
+    }
+
+    this.componentList.push(componentRef);
+  }
+
+  setMode(value: 'single' | 'multi' | any) {
+    this.mode = value;
+
+    this.clearTooltip(value === 'single' || value === 'multi');
+
+  }
+
+  clearTooltip(keepPinned:boolean = true) {
+    for(let com of this.componentList) {
+      com.instance.closeEvent$.next({isClose: true, force: !keepPinned});
+      // com.instance.isClose = false;
+      console.log('pinned', com.instance.pinned$.getValue());
+    }
+
+    this.componentList = this.componentList.filter(com => com.instance.isOpen$.getValue() === true && com.instance.pinned$.getValue() === true);
+
+    console.log(this.componentList);
+  }
+
+
 
 }

@@ -16,6 +16,9 @@ export class AxisShiftComponent implements OnInit {
   chart: any;
   data: number[] = [-10, -5, 0, 5, 10, 15, 10, 10, 5, 0, -5, -10];
 
+  max = 11;
+  min = 0;
+
   ngOnInit(): void {
     this.createChartLine();
   }
@@ -28,17 +31,20 @@ export class AxisShiftComponent implements OnInit {
       },
 
       xAxis: {
-        allowDecimals: false
+        allowDecimals: false,
         // type: 'category', // type 이 category이면, crosshair y축이 범위로 표시됨.
-        // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        max: this.max,
+        min: this.min
       },
 
       series: [{
         data: this.data,
+        connectNulls: false,
         dragDrop: {
           draggableX: true,
           draggableY: true,
-          liveRedraw: false
+          liveRedraw: false,
         },
         // events: {
         //   mouseOver: (e: any) => {
@@ -54,7 +60,7 @@ export class AxisShiftComponent implements OnInit {
               // console.log('drag', e);
             },
             drop: (e: any) => {
-              console.log('drop', e, this.chart);
+              // console.log('drop', e, this.chart);
 
               let gap = {
                 x: e.newPoint.x - e.origin.points[e.newPointId].x,
@@ -62,21 +68,26 @@ export class AxisShiftComponent implements OnInit {
               };
 
               let origin = this.chart.series[0].data.map((item: any) => {
+                console.log(item.x + gap.x)
                 return [item.x + gap.x, item.y + gap.y];
               });
 
-              console.log({gap});
-              console.log({origin});
+              // console.log({gap});
+              // console.log({origin});
 
-              // this.chart.series[0].setData(origin.slice(), true, true, true);
-              this.chart.series[0].update({
-                data: origin.slice(),
-              }, true);
+
+              this.chart.series[0].setData(origin);
+              // this.chart.series[0]?.update({
+              //   data: origin,
+              // }, false);
+
+
+              return false;
             }
           }
         }
       },{
-        data: [-3, 8, 13, 19, 12, 4, -7, 2, 26, 35, 6, 4]
+        // data: [-3, 8, 13, 19, 12, 4, -7, 2, 26, 35, 6, 4]
       }],
 
       plotOptions: {
@@ -86,6 +97,7 @@ export class AxisShiftComponent implements OnInit {
         series: {
 
         },
+        allowPointSelect: false,
 
       }
 

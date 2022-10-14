@@ -1,6 +1,7 @@
 * { padding : 0; margin : 0;}
 
 .area {
+  position: relative;
   box-shadow: 0 0 0 1px #000 inset;
   color: white;
   width:1200px;;
@@ -19,10 +20,4 @@
   height:5px;
   left: 100px;
   top: 50px;
-}
-.destination {
-  left: 500px;
-  top: 300px;
-  width:100px;
-  height:100px;
 }

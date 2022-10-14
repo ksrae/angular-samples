@@ -1,33 +1,12 @@
 <p>dom-to-point works!</p>
 
+<button (click)="createTooltip([500,700])">create tooltip</button>
+<button (click)="setMode('single')">Single</button>
+<button (click)="setMode('multi')">Multi</button>
+<button (click)="setMode('clear')">clear</button>
 
-<div class="area" >
+<div class="area">
   <div class="pointer depart"></div>
-  <div class="pointer destination" point [from]="[0,0]" [to]="[500,300]" [lineColor]="'#000'" [lineWidth]="1"></div>
+  <ng-template #area></ng-template>
 </div>
 
-
-bottom
-507
-<br/>
-height
-102
-<br/>
-left
-509
-<br/>
-right
-611
-<br/>
-top
-405
-<br/>
-width
-102
-<br/>
-x
-509
-<br/>
-y
-405
-<br/>

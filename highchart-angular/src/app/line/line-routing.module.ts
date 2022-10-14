@@ -15,12 +15,13 @@ import { PlotLinesComponent } from './plot-lines/plot-lines.component';
 import { LineDistanceComponent } from './distance/distance.component';
 import { SeriesAddComponent } from './series-add/series-add.component';
 import { SeriesVisibleComponent } from './series-visible/series-visible.component';
-import { DragBackgroundComponent } from './drag-background/drag-background.component';
 import { SeriesMultiColorComponent } from './series-multi-color/series-multi-color.component';
 import { XaxisLabelComponent } from './axis/xaxis-label/xaxis-label.component';
 import { AxisShiftComponent } from './axis/axis-shift/axis-shift.component';
 import { AxisShift2Component } from './axis/axis-shift2/axis-shift2.component';
 import { OverlayblankComponent } from './overlayblank/overlayblank.component';
+import { DragPointComponent } from './drag/drag-point/drag-point.component';
+import { DragPointMultiDimensionComponent } from './drag/drag-point-multi-dimension/drag-point-multi-dimension.component';
 
 const routes: Routes = [
   { path: '', component: LineComponent, children: [
@@ -41,7 +42,8 @@ const routes: Routes = [
     { path: 'plotlines', component: PlotLinesComponent},
     { path: 'distance', component: LineDistanceComponent},
     { path: 'boost', component: GpuBoostComponent},
-    { path: 'dragbg', component: DragBackgroundComponent},
+    { path: 'dragpoints', component: DragPointComponent},
+    { path: 'dragpoints2', component: DragPointMultiDimensionComponent},
     { path: 'multicolor', component: SeriesMultiColorComponent},
     { path: 'overlay', component: OverlayblankComponent},
 
