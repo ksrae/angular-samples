@@ -22,6 +22,10 @@ import { AxisShift2Component } from './axis/axis-shift2/axis-shift2.component';
 import { OverlayblankComponent } from './overlayblank/overlayblank.component';
 import { DragPointComponent } from './drag/drag-point/drag-point.component';
 import { DragPointMultiDimensionComponent } from './drag/drag-point-multi-dimension/drag-point-multi-dimension.component';
+import { XaxisDateTimeComponent } from './axis/xaxis-datetime/xaxis-datetime.component';
+import { AxisGroupComponent } from './axis/axis-group/axis-group.component';
+import { ScrollComponent } from './scroll/scroll.component';
+import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
 
 const routes: Routes = [
   { path: '', component: LineComponent, children: [
@@ -35,8 +39,11 @@ const routes: Routes = [
     { path: 'multitooltip', component: MultiTooltipComponent},
     { path: 'axis', component: AxisXYComponent},
     { path: 'multixaxis', component: MultixAxisComponent},
+    { path: 'axisgroup', component: AxisGroupComponent},
     { path: 'xaxislinkto', component: XaxisLinktoComponent},
     { path: 'xaxislabel', component: XaxisLabelComponent},
+    { path: 'xaxisdatetime', component: XaxisDateTimeComponent},
+    { path: 'xaxiscolor', component: XaxisColorlComponent},
     { path: 'axishift', component: AxisShiftComponent},
     { path: 'axishift2', component: AxisShift2Component},
     { path: 'plotlines', component: PlotLinesComponent},
@@ -46,6 +53,7 @@ const routes: Routes = [
     { path: 'dragpoints2', component: DragPointMultiDimensionComponent},
     { path: 'multicolor', component: SeriesMultiColorComponent},
     { path: 'overlay', component: OverlayblankComponent},
+    { path: 'scroll', component: ScrollComponent},
 
   ]},
 

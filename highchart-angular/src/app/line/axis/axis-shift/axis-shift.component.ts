@@ -84,6 +84,43 @@ export class AxisShiftComponent implements OnInit {
 
               return false;
             }
+
+
+//     const currentSeries = (this.chartOptions.series[e.target.series.index] as any).data.map((item: any, index: number) => {
+//       let newXposition = 0;
+//       let newYposition = 0;
+
+//       // console.log({item}, typeof(item) === 'object');
+
+//       if(Array.isArray(item)) {
+//         newXposition = item[0] === null ? null : item[0] + gap.x;
+//         newYposition = item[1] === null ? null : item[1] + gap.y;
+
+//       } else if(typeof(item) === 'object') {
+//         newXposition = item === null || item?.x === null ? index + gap.x : item.x + gap.x;
+//         newYposition = item === null || item?.y === null ? null : item.y + gap.y;
+
+//       } else {
+//         newXposition = index + gap.x;
+//         newYposition = item === null ? null : item + gap.y;
+//       }
+
+//       return [newXposition, newYposition];
+//     });
+
+//     this.setChartOptions({
+//       ...this.chartOptions,
+//       series: [...this.chartOptions.series.map((o: Highcharts.SeriesOptionsType, i: number): Highcharts.SeriesOptionsType => {
+//         return {
+//           ...o,
+//           data: i === e.target.series.index ? currentSeries: (o as any).data
+//         };
+//       })],
+//     })
+
+//     return;
+//   }
+//   return;
           }
         }
       },{
@@ -105,16 +142,49 @@ export class AxisShiftComponent implements OnInit {
     } as any);
   }
 
-  left() {
-
-  }
-  right() {
-
-  }
-  top() {
-
-  }
-  bottom() {
-
-  }
 }
+
+
+// drop: (e: any) => {
+//   if(this.isTypeSelected('SeriesShift')) {
+//     const gap = {
+//       x: e.newPoint.x ? e.newPoint.x - e.origin.points[e.newPointId].x : 0,
+//       y: e.newPoint.y ? e.newPoint.y - e.origin.points[e.newPointId].y : 0
+//     };
+
+//     const currentSeries = (this.chartOptions.series[e.target.series.index] as any).data.map((item: any, index: number) => {
+//       let newXposition = 0;
+//       let newYposition = 0;
+
+//       // console.log({item}, typeof(item) === 'object');
+
+//       if(Array.isArray(item)) {
+//         newXposition = item[0] === null ? null : item[0] + gap.x;
+//         newYposition = item[1] === null ? null : item[1] + gap.y;
+
+//       } else if(typeof(item) === 'object') {
+//         newXposition = item === null || item?.x === null ? index + gap.x : item.x + gap.x;
+//         newYposition = item === null || item?.y === null ? null : item.y + gap.y;
+
+//       } else {
+//         newXposition = index + gap.x;
+//         newYposition = item === null ? null : item + gap.y;
+//       }
+
+//       return [newXposition, newYposition];
+//     });
+
+//     this.setChartOptions({
+//       ...this.chartOptions,
+//       series: [...this.chartOptions.series.map((o: Highcharts.SeriesOptionsType, i: number): Highcharts.SeriesOptionsType => {
+//         return {
+//           ...o,
+//           data: i === e.target.series.index ? currentSeries: (o as any).data
+//         };
+//       })],
+//     })
+
+//     return;
+//   }
+//   return;
+// }

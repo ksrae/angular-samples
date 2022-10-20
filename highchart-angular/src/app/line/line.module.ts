@@ -24,6 +24,10 @@ import { MultiTooltipComponent } from './tooltip-multi/tooltip-multi.component';
 import { OverlayblankComponent } from './overlayblank/overlayblank.component';
 import { DragPointComponent } from './drag/drag-point/drag-point.component';
 import { DragPointMultiDimensionComponent } from './drag/drag-point-multi-dimension/drag-point-multi-dimension.component';
+import { XaxisDateTimeComponent } from './axis/xaxis-datetime/xaxis-datetime.component';
+import { AxisGroupComponent } from './axis/axis-group/axis-group.component';
+import { ScrollComponent } from './scroll/scroll.component';
+import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
 
 
 @NgModule({
@@ -32,8 +36,11 @@ import { DragPointMultiDimensionComponent } from './drag/drag-point-multi-dimens
 
     AxisXYComponent,
     MultixAxisComponent,
+    AxisGroupComponent,
     XaxisLinktoComponent,
     XaxisLabelComponent,
+    XaxisDateTimeComponent,
+    XaxisColorlComponent,
     LineDistanceComponent,
     DrilldownComponent,
     GetpointComponent,
@@ -51,6 +58,7 @@ import { DragPointMultiDimensionComponent } from './drag/drag-point-multi-dimens
     AxisShiftComponent,
     AxisShift2Component,
     OverlayblankComponent,
+    ScrollComponent
 
   ],
   imports: [

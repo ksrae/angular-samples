@@ -1,1 +1,24 @@
 <div id="chart-line"></div>
+
+
+<pre>
+  설정:
+
+  ...
+  tooltip: &#123;
+    headerFormat: '&lt;table&gt;&lt;tr&gt;&lt;th colspan="2"&gt;&#123;point.key&#125;&lt;/th&gt;&lt;/tr&gt;',
+    pointFormat: `&lt;tr&gt;&lt;td style="color: &#123;series.color	&#125;"&gt;&#123;series.name&#125; &#123;point.options.custom.test&#125; &#123;series.options.custom.test&#125; $&#123;tooltipTxt&#125;&gt;&lt;/td&gt;` +
+        '&lt;td style="text-align: right"&gt;&lt;b&gt;&#123;point.y	&#125; EUR&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;',
+    footerFormat: '&lt;/table&gt;',
+    valueDecimals: 2,
+    shared: false, // 모든 차트 정보를 하나로, 포멧도 통일됨.
+    split: false, // 툴팁 여러 개로 표시
+    useHTML: true,
+    followPointer: true, // 마우스가 어디든 툴팁이 따라옴
+    // positioner: () => &#123; return &#123;x: 80, y: 50	&#125;	&#125;, // 위치 고정
+    shadow: false,
+    // crosshairs: true, // deprecated
+    &#125;,
+
+</pre>
+

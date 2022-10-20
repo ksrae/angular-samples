@@ -26,13 +26,13 @@ export class GpuBoostComponent implements OnInit {
       },
 
       boost: {
-          allowForce: true,
-          useGPUTranslations: true,
-          // usePreallocated: true,
+        allowForce: false,
+        useGPUTranslations: false,
+        usePreallocated: false,
       },
 
       series: [{
-        data: this.getData(1000),
+        data: this.getData(10000000)
       }],
     } as any)
 

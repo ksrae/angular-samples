@@ -1,6 +1,20 @@
 <div id="chart-line"></div>
 
-<button (click)="left()">shift left</button>
-<button (click)="right()">shift right</button>
-<button (click)="top()">shift top</button>
-<button (click)="bottom()">shift bottom</button>
+
+<pre>
+  - drop event 발생 시 좌표를 다시 계산하는 방식
+
+  let gap = &#123;
+    x: e.newPoint.x - e.origin.points[e.newPointId].x,
+    y: e.newPoint.y - e.origin.points[e.newPointId].y
+  &#125;;
+
+  let origin = this.chart.series[0].data.map((item: any) => &#123;
+    console.log(item.x + gap.x)
+    return [item.x + gap.x, item.y + gap.y];
+  &#125;&#125;;
+
+  - 2차원 배열도 고려해야 함.
+
+
+</pre>

@@ -104,16 +104,5 @@ export class AxisShift2Component implements OnInit {
     } as any);
   }
 
-  left() {
 
-  }
-  right() {
-
-  }
-  top() {
-
-  }
-  bottom() {
-
-  }
 }
