@@ -1,0 +1,7 @@
+<button (click)="normal()">normal</button>
+<br/>
+<button (click)="error(401)">error 401</button>
+<br/>
+<button (click)="error2(404)">error 404</button>
+<br/>
+<div *ngIf="message">{{message | json}}</div>

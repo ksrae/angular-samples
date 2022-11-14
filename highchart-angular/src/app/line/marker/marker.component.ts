@@ -78,15 +78,26 @@ export class MarkerComponent implements OnInit {
             marker: {
               enabled: true,
               fillColor: 'white',
-              lineWidth: 2,
+              lineWidth: 1,
               states: {
                 // https://api.highcharts.com/highcharts/plotOptions.line.marker.states.select
                 select: {
                   enabled:true,
+                  fillColor:'red',
+                  lineColor:'blue',
+                  lineWidth: 0,
+                  lineWidthPlus: 2,
+                  radius: 4,
+                  radiusPlus: 4
+                },
+                hover: {
+                  enabled:true,
                   fillColor:'blue',
                   lineColor:'red',
-                  lineWidth:2,
-                  radius:undefined
+                  lineWidth: 0,
+                  lineWidthPlus: 2,
+                  radius: 3,
+                  radiusPlus: 4
                 }
               }
               // lineColor: Highcharts?.getOptions().colors[0]

@@ -34,6 +34,7 @@ export class TooltipComponent implements OnInit, AfterViewInit, OnDestroy {
    * @memberof TooltipComponent
    */
   @Input() set position(item: TooltipPosition) {
+    console.log('position', this.el.nativeElement.firstChild);
     const tooltipWidth = this.el.nativeElement.firstChild.clientWidth;
     const tooltipHeight = this.el.nativeElement.firstChild.clientHeight;
 

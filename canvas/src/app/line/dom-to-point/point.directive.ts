@@ -50,7 +50,7 @@ export class PointDirective implements AfterViewInit {
     canvas.setAttribute('width', '2000');
     canvas.style.cssText = 'position:fixed;'
 
-    // console.log('parentNode', this.el.nativeElement.parentNode, 'firstChild', this.el.nativeElement.parentNode.firstChild);
+    console.log('parentNode', this.el.nativeElement.parentNode, 'firstChild', this.el.nativeElement.parentNode.firstChild);
     this.renderer.insertBefore(this.el.nativeElement.parentNode, canvas, this.el.nativeElement.parentNode.firstChild);
 
     this.drawLine();
