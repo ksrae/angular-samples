@@ -14,7 +14,7 @@ export class HttpService {
   error(type: number) {
     return this.http.get(`http://localhost:3000/${type}`).pipe(
       first(),
-      catchError(err => this.commonError(err))
+      // catchError(err => this.commonError(err))
     )
   }
   error2(type: number) {
@@ -27,6 +27,7 @@ export class HttpService {
   }
 
   commonError(err: any) {
+    console.log({err});
     if(err.status === 401) {
       console.log('401 error');
       return throwError(() => null)

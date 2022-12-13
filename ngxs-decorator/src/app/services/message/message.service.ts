@@ -21,15 +21,5 @@ export class MessageService {
       message
     });
 
-
-    //return new AddMessage(event.payload);
-    // this.store.dispatch(event);
-    // return new AddMessage(from, message);
-
-    // return new AddMessage(new SendWebSocketMessage({
-    //   type: 'message',
-    //   from,
-    //   message
-    // }))
   }
 }

@@ -1,0 +1,6 @@
+lazy 1
+
+<form class="input-form" [formGroup]="searchForm" (ngSubmit)="submit($event)">
+  <input type="text" formControlName="item" placeholder="검색어를 입력하세요" tabindex="1" />
+  <button type="submit">검색</button><!--활설화 class="on" -->
+</form>

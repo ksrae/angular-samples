@@ -9,6 +9,9 @@ export class MyErrorHandler implements ErrorHandler {
   handleError(error: any) {
     // do something with the exception
     console.log('===========', error);
+    if(error) {
+      console.log('401 error');
+    }
 
   }
 }

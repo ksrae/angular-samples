@@ -27,8 +27,7 @@ export class AppComponent implements OnInit {
       first(),
       tap(a => console.log({a})),
       catchError((err: any) => {
-        console.log({err});
-        return throwError(() => new Error(err));
+        return throwError(() => err.status === 401 ? err : null);
       })
     ).subscribe();
   }
@@ -36,9 +35,8 @@ export class AppComponent implements OnInit {
     this.httpService.error(type).pipe(
       tap(a => console.log({a})),
       catchError((err: any) => {
-        console.log('error111', err);
         this.message = err ?? null;
-        return throwError(() => null)
+        return throwError(() => err.status === 401 ? err : null);
       })
     ).subscribe();
   }
@@ -47,8 +45,7 @@ export class AppComponent implements OnInit {
       tap(a => console.log({a})),
       catchError((err: any) => {
         this.message = err ?? null;
-        return throwError(() => err)
-        // return throwError(() => new Error(err));
+        return throwError(() => err.status === 401 ? err : null);
       })
     ).subscribe();
   }

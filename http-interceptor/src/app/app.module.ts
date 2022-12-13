@@ -22,10 +22,10 @@ import { MyErrorHandler } from './my-error-handler';
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: MockInterceptor,
     // },
-    // {
-    //   provide: ErrorHandler,
-    //   useClass: MyErrorHandler
-    // }
+    {
+      provide: ErrorHandler,
+      useClass: MyErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
