@@ -28,6 +28,7 @@ import { XaxisDateTimeComponent } from './axis/xaxis-datetime/xaxis-datetime.com
 import { AxisGroupComponent } from './axis/axis-group/axis-group.component';
 import { ScrollComponent } from './scroll/scroll.component';
 import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
+import { ContextMenuComponent } from './contextmenu/contextmenu.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
     AxisShiftComponent,
     AxisShift2Component,
     OverlayblankComponent,
-    ScrollComponent
+    ScrollComponent,
+    ContextMenuComponent
 
   ],
   imports: [

@@ -26,6 +26,7 @@ import { XaxisDateTimeComponent } from './axis/xaxis-datetime/xaxis-datetime.com
 import { AxisGroupComponent } from './axis/axis-group/axis-group.component';
 import { ScrollComponent } from './scroll/scroll.component';
 import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
+import { ContextMenuComponent } from './contextmenu/contextmenu.component';
 
 const routes: Routes = [
   { path: '', component: LineComponent, children: [
@@ -54,7 +55,7 @@ const routes: Routes = [
     { path: 'multicolor', component: SeriesMultiColorComponent},
     { path: 'overlay', component: OverlayblankComponent},
     { path: 'scroll', component: ScrollComponent},
-
+    { path: 'contextmenu', component: ContextMenuComponent},
   ]},
 
 ];
