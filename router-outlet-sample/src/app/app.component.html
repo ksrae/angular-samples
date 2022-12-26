@@ -1,0 +1,17 @@
+<a routerLink="./">Home</a>
+<br/>
+<a [routerLink]="['./path1', {outlets:{route1:['path-first']}}]">path1-route1-first</a>
+<br/>
+<a [routerLink]="['./path1', {outlets:{route1:['path-second']}}]">path1-route1-second</a>
+<br/>
+<a [routerLink]="['./path2', {outlets:{route2:['path-third']}}]">path2-route2-third</a>
+<br/>
+<a [routerLink]="['./path2', {outlets:{route2:['path-fourth']}}]">path2-route2-fourth</a>
+<br/>
+<a [routerLink]="[{outlets:{route3:['path3']}}]" [queryParams]="{}">path3</a>
+
+<button (click)="move()">Path3</button>
+<br/>
+<router-outlet></router-outlet>
+<router-outlet name="route3"></router-outlet>
+

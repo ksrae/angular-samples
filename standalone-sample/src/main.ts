@@ -1,7 +1,7 @@
 import { importProvidersFrom } from '@angular/core';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { bootstrapApplication } from "@angular/platform-browser";
-import { PreloadAllModules, provideRouter, withDebugTracing, withPreloading, withRouterConfig } from "@angular/router";
+import { PreloadAllModules, provideRouter, withDebugTracing, withDisabledInitialNavigation, withEnabledBlockingInitialNavigation, withInMemoryScrolling, withPreloading, withRouterConfig } from "@angular/router";
 import { AppComponent } from "./app/app.component";
 import { AppRoutes } from "./app/app.routes";
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -28,9 +28,71 @@ bootstrapApplication(AppComponent, {
 
     provideRouter(
       AppRoutes,
-      // withPreloading options: NoPreloading, PreloadAllModules
-      //https://angular.io/api/router/PreloadingStrategy
+      /**
+       * withPreloading options: NoPreloading, PreloadAllModules
+       * https://angular.io/api/router/PreloadingStrategy
+       */
       withPreloading(PreloadAllModules),
+      /**
+       * router debuging을 콘솔에 출력한다.
+       * 필요 없으면 제거
+      */
+      withDebugTracing(),
+      /**
+       * 라우터가 초기 탐색 작업을 수행하는 방법을 정의합니다.
+       * 만일 일반적인 경우 둘다 사용하지 않습니다.
+       * withEnabledBlockingInitialNavigation(): initial navigation은 루트 컴포넌트가 생성되기 전에 시작합니다. initial navigation이 완료될 때까지 bootstrap은 block됩니다.server-side rendering 설정 시 필수 입니다.
+       * withDisabledInitialNavigation(): initial navigation이 수행되지 않습니다. 루트 컴포넌트가 생성되기 전에 location listener가 setup 됩니다. 초기 시작 시 더 많은 제거 권한을 가질 필요가 있는 경우에만 사용할 것.
+       *  Use if there is a reason to have more control over when the router starts its initial navigation due to some complex initialization logic.
+       */
+      // withEnabledBlockingInitialNavigation(),
+      // withDisabledInitialNavigation(),
+
+      /**
+       * 페이지 이동 시 스크롤을 메모리에 저장하는 옵션을 설정합니다.
+      */
+      withInMemoryScrolling({
+        /**
+         * enable인 경우 url에 fragment(#)가 있으면 해당 element로 스크롤 합니다.
+         * popstate인 경우에는 발생하지 않습니다.
+         * imperative vs popstate
+         * imperative: 일반적으로 버튼을 눌러서 페이지를 이동할 때 url로 이동. router.navigate(), routerlink 등으로 이동하는 경우.
+         * popstate: back, forward, window.history, window.go(), back(). (angular service를 사용한 go, back 함수도 포함)
+        */
+        anchorScrolling: 'disabled',
+        /**
+         * navigation이 back일 때의 설정.
+         * 'disabled': 페이지에 상관없이 현재 스크롤을 유지합니다.
+         * 'top': 스크롤을 가장 위로 올립니다.
+         * 'enabled': 페이지를 이동했을 때의 상태로 복원합니다.
+         * 예제:
+         * ```typescript
+         * class AppComponent {
+         *   movieData: any;
+         *
+         *   constructor(private router: Router, private viewportScroller: ViewportScroller,
+         * changeDetectorRef: ChangeDetectorRef) {
+         *   router.events.pipe(filter((event: Event): event is Scroll => event instanceof Scroll)
+         *     ).subscribe(e => {
+         *       fetch('http://example.com/movies.json').then(response => {
+         *         this.movieData = response.json();
+         *         // update the template with the data before restoring scroll
+         *         changeDetectorRef.detectChanges();
+         *
+         *         if (e.position) {
+         *           viewportScroller.scrollToPosition(e.position);
+         *         }
+         *       });
+         *     });
+         *   }
+         * }
+         * ```
+         */
+        scrollPositionRestoration: 'disabled'
+      }),
+      /**
+       * Routing 설정
+      */
       withRouterConfig(
         {
           /**
@@ -56,7 +118,7 @@ bootstrapApplication(AppComponent, {
           urlUpdateStrategy: 'deferred',
         }
       ),
-      withDebugTracing()
+
     )
   ]
 }).catch(
