@@ -11,7 +11,7 @@ import { Route3Component } from './route3/route3.component';
 const routes: Routes = [
   { path: '', children: [
     {path: 'path1', component: Route1Component, children: [
-      {path: 'path-first', component: Path1Component, outlet: 'route1'},
+      {path: 'path-first', component: Path1Component, outlet: 'route1', data: {value: 'hello world'} },
       {path: 'path-second', component: Path2Component, outlet: 'route1'},
     ]},
     {path: 'path2', component: Route2Component, children: [

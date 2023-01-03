@@ -12,7 +12,7 @@ export class Path1Component {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    console.log('snapshot', this.route.snapshot);
-    console.log('router', this.router.url)
+    console.log('snapshot', this.route);
+    console.log('router', this.router.url);
   }
 }

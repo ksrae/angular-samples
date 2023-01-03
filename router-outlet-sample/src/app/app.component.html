@@ -1,6 +1,6 @@
 <a routerLink="./">Home</a>
 <br/>
-<a [routerLink]="['./path1', {outlets:{route1:['path-first']}}]">path1-route1-first</a>
+<a [routerLink]="['./path1', {outlets:{route1:['path-first']}}]" ariaCurrentWhenActive="'page'">path1-route1-first</a>
 <br/>
 <a [routerLink]="['./path1', {outlets:{route1:['path-second']}}]">path1-route1-second</a>
 <br/>
@@ -14,4 +14,5 @@
 <br/>
 <router-outlet></router-outlet>
 <router-outlet name="route3"></router-outlet>
+
 

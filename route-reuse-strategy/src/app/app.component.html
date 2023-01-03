@@ -1,0 +1,10 @@
+<a [routerLink]="['/']">HOME</a>
+<br/><br/>
+<a [routerLink]="['./reuse']">REUSE</a>
+<router-outlet
+(activate)="onActivate($event)"
+(deactivate)="onDeactivate($event)"
+>
+</router-outlet>
+<!-- (attach)="onAttach($event)"
+(detach)="onDetach($event)" -->
