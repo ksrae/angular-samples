@@ -51,7 +51,7 @@ export class TooltipComponent implements OnInit {
       },
       tooltip: {
         headerFormat: '<table><tr><th colspan="2">{point.key}</th></tr>',
-        pointFormat: `<tr><td style="color: {series.color}">{series.name} {point.options.custom.test} {series.options.custom.test} ${tooltipTxt}></td>` +
+        pointFormat: `<tr><td style="color: {series.color}">{series.name} {point.options.custom.test} {series.options.custom.test} ${tooltipTxt}</td>` +
             '<td style="text-align: right"><b>{point.y} EUR</b></td></tr>',
         footerFormat: '</table>',
         valueDecimals: 2,
