@@ -10,8 +10,51 @@
 <br/>
 <a [routerLink]="[{outlets:{route3:['path3']}}]" [queryParams]="{}">path3</a>
 
-<button (click)="move()">Path3</button>
+<button (click)="move()" (keypress.enter)="move()">Path3</button>
 <br/>
 <router-outlet></router-outlet>
 <router-outlet name="route3"></router-outlet>
 
+
+<ul>
+  <li *ngFor="let item of items| keyvalue">
+     <div>{{item.key}} {{item}}</div>
+  </li>
+</ul>
+
+<div>{{10000.555 | number: '1.0-2':'ko'}}</div>
+<div>{{20000.555 | number: '1.0-2':'fr'}}</div>
+<div>{{30000.555 | number: '1.0-2':'tr'}}</div>
+
+
+<div>{{0.123456 | percent: '1.0-2'}}</div>
+
+<div>{{12.345 | currency: 'KRW': 'code'}}</div>
+
+
+<ng-template [ngTemplateOutlet]="selfie" [ngTemplateOutletContext]="{ aVariable: 333 }"></ng-template>
+<ng-template [ngTemplateOutlet]="selfie" [ngTemplateOutletContext]="{ aVariable: 111 }"></ng-template>
+
+<ng-template #selfie [ngTemplateOutlet]="selfie" let-a="aVariable">
+  <div>
+    <h1>{{a}}</h1>
+  </div>
+</ng-template>
+
+<ng-template #example let-title="fooBar">
+  <span>{{title}}</span>
+</ng-template>
+<ng-container *ngTemplateOutlet="example; context: {fooBar:'This is the value'}"></ng-container>
+
+
+<app-test></app-test>
+<!-- 1.1.5.1.3. 번역 시 innerHTML의 활용
+ngx-translate, transloco 등의 번역을 활용할 경우 일반적으로는 interpolation을 활용한다. 아래는 그 예이다.
+// ngx-translate
+<div>{{'main.value' | translate}}</div>
+
+그런데 만일 이러한 번역이 많아지면 원하는 값이 어디에 적용되는지 알기 위해서는 값에 해당하는 key를 찾아 검색해야 한다. 만약 위와 같이 번역이 tree 형태로 구성되어 있다면 root 부터 전체 key 구조를 알아야 찾을 수 있으므로 검색에 어려움이 있다.
+
+이를 간단히 해결하려면 innerHTML에 번역을 적용하고 값은 value에 표기하는 법입니다.
+이렇게 하면 값으로 즉시 찾을 수 있으므로 쉽게 원하는 위치를 찾을 수 있다.
+<div [innerHTML]="'login' | translate">로그인</div> -->

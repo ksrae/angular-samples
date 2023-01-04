@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,17 @@ import { Path3Component } from './route2/path3/path3.component';
 import { Path4Component } from './route2/path4/path4.component';
 import { Route3Component } from './route3/route3.component';
 
+import { registerLocaleData } from '@angular/common';
+import localeKr from '@angular/common/locales/ko';
+import localeFr from '@angular/common/locales/fr';
+import localeTr from '@angular/common/locales/tr';
+import { TestModule } from './test/test.module';
+import { DIComponent, HostDI, RouteChildComponent } from './route1/route-child/route-child.component';
+import { UpperFirstLetterOnlyPipe } from './route1/route1.pipe';
+registerLocaleData(localeKr, 'ko');
+registerLocaleData(localeFr, 'fr');
+registerLocaleData(localeTr, 'tr');
+
 
 @NgModule({
   declarations: [
@@ -22,13 +33,20 @@ import { Route3Component } from './route3/route3.component';
     Path2Component,
     Path3Component,
     Path4Component,
-    Route3Component
+    Route3Component,
+    RouteChildComponent,
+    DIComponent,
+    HostDI,
+    UpperFirstLetterOnlyPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TestModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
