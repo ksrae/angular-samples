@@ -1,37 +1,3 @@
-# ParamsInheritanceStrategy
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
-
-# Standalone
-
-## Module
-
-```json
-{
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "standalone-sample": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": true
-        }
-      },
-```
-
-## main.ts
-
-```tsx
-import { importProvidersFrom } from '@angular/core';
-import { bootstrapApplication } from "@angular/platform-browser";
-import { PreloadAllModules, provideRouter, RouterModule, withDebugTracing, withPreloading, withRouterConfig } from "@angular/router";
-import { AppComponent } from "./app/app.component";
-import { AppRoutes } from "./app/app.routes";
-
-
 import { importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from "@angular/platform-browser";
 import { PreloadAllModules, provideRouter, RouteReuseStrategy, RouterModule, withDebugTracing, withDisabledInitialNavigation, withEnabledBlockingInitialNavigation, withInMemoryScrolling, withPreloading, withRouterConfig } from "@angular/router";
@@ -46,10 +12,9 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
     // pass the routes from existing RouteModule
-    // with로 구현하거나 RouterModule.forRoot로 구현하거나 선택할 수 있다.
     // importProvidersFrom(
     //   RouterModule.forRoot(AppRoutes, {
-        
+
     //     preloadingStrategy: PreloadService,
     //     paramsInheritanceStrategy: 'always',
     //     onSameUrlNavigation: 'reload',
@@ -57,7 +22,6 @@ bootstrapApplication(AppComponent, {
     //     initialNavigation: 'enabledBlocking'
     //   })
     // ),
-    
     // RouteModule.forRoot는 다음과 같이 구성할 수 있다.
     withPreloading(PreloadAllModules),
     withDebugTracing(),
@@ -92,58 +56,4 @@ bootstrapApplication(AppComponent, {
 );
 
 
-```
 
-## remove files
-app-routing.module.ts, app.module.ts 제거
-
-## add files
-app.routes.ts 추가
-
-```tsx
-import { Routes } from "@angular/router";
-import { AppComponent } from "./app.component";
-import { RouteChildComponent } from "./route-child/route-child.component";
-
-export const AppRoutes: Routes = [{
-  path: '', component: AppComponent, children: [
-    { path: 'child', component: RouteChildComponent },
-    { path: 'lazy', loadChildren: () => import('./route-lazy-load/route-lazy-load.routes').then(mod => mod.RouteLazyLoadRoutes)},
-    { path: 'lazy2', loadChildren: () => import('./route-lazy-load2/route-lazy-load2.routes')},
-    { path: 'lazy3', loadChildren: () => import('../route-lazy-load3/route-lazy-load3.component').then(m => m.RouteLazyLoad3Component)}
-  ]
-}];
-```
-
-route-lazy-load.routes.ts 추가
-> Routes 변수를 선언한다. AppRoutes는 선언된 변수를 promise에 적용한다.
-
-```tsx
-import { Routes } from "@angular/router";
-import { RouteLazyLoadComponent } from "./route-lazy-load.component";
-
-export const RouteLazyLoadRoutes: Routes = [
-  { path: '', component: RouteLazyLoadComponent }
-];
-```
-
-route-lazy-load2.routes.ts 추가
-> 변수명이 없는(default) Route를 export한다. AppRoutes는 promise 없이 링크만 import한다.
-```tsx
-import { RouteLazyLoad2Component } from "./route-lazy-load2.component";
-
-export default [
-  { path: '', component: RouteLazyLoad2Component }
-];
-```
-
-route-lazy-load3.component.ts 추가
-> 별도의 route 파일 없이 직접 component에 접근한다. 하위 route가 없으면 이렇게 구현하는 것이 추가 코드가 없으므로 쉽다.
-
-
-
-https://this-is-angular.github.io/angular-guides/docs/standalone-apis/adding-top-level-routes-to-a-standalone-angular-application
-
-
-# boostrapApplication에서 providers 옵션
-## with 옵션 목록
