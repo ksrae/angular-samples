@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Route3Service } from '../route3/route3.service';
 
 @Component({
   selector: 'app-route2',
@@ -7,5 +8,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Route2Component {
-
+  constructor(
+    private route3: Route3Service
+  ) {
+    this.route3.index += 100;
+    console.log(this.route3.index);
+  }
 }

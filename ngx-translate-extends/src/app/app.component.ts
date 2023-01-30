@@ -24,6 +24,17 @@ export class AppComponent implements OnInit {
 
   change() {
     // console.log(this.translateService.currentLang);
+    this.translateService.get('hellomain').subscribe(a => console.log({a}))
+    this.translateService.getStreamOnTranslationChange('hellomain').subscribe(b => console.log({b}))
     this.translateService.use(this.translateService.currentLang === 'ko' ? 'en': 'ko');
+  }
+  set() {
+    this.translateService.set('hellomain', '카카카카<main>', 'en');
+    // this.translateService.setTranslation('ko', {
+    //   "hellomain": "카카카카 <main>",
+    //   "hellosub": "서서서서 <sub>"
+    // }, true);
+
+
   }
 }

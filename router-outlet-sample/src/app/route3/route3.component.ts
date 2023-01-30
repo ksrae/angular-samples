@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-route3',
   templateUrl: './route3.component.html',
@@ -7,5 +8,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Route3Component {
+  constructor(
 
+  ) {
+
+  }
 }

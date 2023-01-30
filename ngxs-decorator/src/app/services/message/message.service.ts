@@ -13,6 +13,13 @@ export class MessageService {
   connect(): ConnectWebSocket {
     return new ConnectWebSocket();
   }
+
+  /**
+   * It returns a new SendWebSocketMessage object.
+   * @param {string} from - string - The name of the user sending the message
+   * @param {string} message - The message to send.
+   * @returns A new instance of SendWebSocketMessage
+   */
   @Dispatch()
   sendMessage(from: string, message: string): SendWebSocketMessage {
     return new SendWebSocketMessage({

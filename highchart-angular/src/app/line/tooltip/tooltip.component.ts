@@ -101,6 +101,12 @@ export class TooltipComponent implements OnInit {
 
   }
 
+/**
+ * It returns a random number between the min and max values, inclusive.
+ * @param {number} min - The minimum number that can be generated.
+ * @param {number} max - The maximum number you want to generate.
+ * @returns The random number between the min and max values.
+ */
   private getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
