@@ -1,0 +1,26 @@
+<h3>how to install</h3>
+<pre>
+  <code>npm install --save ag-grid-community</code>
+  <code>npm install --save ag-grid-angular</code>
+</pre>
+
+<h3>import to appModule</h3>
+<pre>
+  <code>
+    imports: [
+      BrowserModule,
+      HttpClientModule,
+      AgGridModule
+    ],
+  </code>
+</pre>
+
+<h3>Samples</h3>
+
+<a [routerLink]="['./basic']" [routerLinkActive]="'active'">Basic</a>
+<a [routerLink]="['./defaultColDef']" [routerLinkActive]="'active'">defaultColDef</a>
+<a [routerLink]="['./customLoader']" [routerLinkActive]="'active'">customLoader</a>
+<a [routerLink]="['./editbyouter']" [routerLinkActive]="'active'">editbyouter</a>
+
+
+<router-outlet></router-outlet>

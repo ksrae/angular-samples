@@ -1,0 +1,3 @@
+<form [formGroup]="editorForm">
+  <input type="string" formControlName="key" placeholder="input name" (blur)="set()" (keydown)="onKeyDown($event)" />
+</form>

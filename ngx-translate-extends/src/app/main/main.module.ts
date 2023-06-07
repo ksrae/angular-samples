@@ -9,11 +9,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommonTranslateService } from '../services/common-translate.service';
 import { SharedModule } from '../shared.module';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/main/', '.json');
-}
-
-
 @NgModule({
   declarations: [
     MainComponent

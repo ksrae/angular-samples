@@ -1,0 +1,10 @@
+{
+  "OCAP_RESULT_VIEW.CHART.ERROR": "[ERROR] load summary chart data",
+  "OCAP_RESULT_VIEW.CHART.TIMEOUT": "[TIMEOUT] load summary chart data",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.CONTEXT_TYPE": "{{name}} is already set context type.",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.ALARM": "{{key}} Alarm {{name}} Response {{result}}",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.NO_DATA": "No data",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.DRILL_DOWN": "{{name}} cannot drill down to the parameter.",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.LOCATION": "Please set the location first in the Tool-Information service.",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.NO_PANE": "Not found pane for remove by Id {{name}}"
+}

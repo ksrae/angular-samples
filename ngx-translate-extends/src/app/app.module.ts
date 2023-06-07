@@ -8,10 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonTranslateService } from './services/common-translate.service';
 import { SharedModule } from './shared.module';
+import { CustomLoader } from './services/custom-loader';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/main/', '.json');
-}
+// export function createTranslateLoader(http: HttpClient) {
+//   return new TranslateHttpLoader(http, './assets/i18n/main/', '.json');
+// }
 
 
 @NgModule({
@@ -23,15 +24,16 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      },
+      loader: {provide: TranslateLoader, useClass: CustomLoader, deps: [HttpClient]}
+      // loader: {
+      //   provide: TranslateLoader,
+      //   useFactory: (createTranslateLoader),
+      //   deps: [HttpClient]
+      // },
       // isolate: false,
       // extend: true
     }),
-    SharedModule
+    // SharedModule
   ],
   providers: [
 

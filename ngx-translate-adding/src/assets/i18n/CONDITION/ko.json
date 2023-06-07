@@ -1,0 +1,8 @@
+{
+  "CONDITION.EXIST": "Condition title 이 존재 합니다. title 내용의 변경이 필요합니다.",
+  "CONDITION.NEW": "저장 성공",
+  "CONDITION.MODIFY": "수정 성공",
+  "CONDITION.FAIL_NEW": "저장 실패",
+  "CONDITION.FAIL_MODIFY": "수정 실패",
+  "CONDITION.MODIFY_SAVED": "선택할 수 있는 Condition의 항목이 변경 되었습니다. 기존의 Saved Condition을 삭제하고 다시 생성해 주세요."
+}

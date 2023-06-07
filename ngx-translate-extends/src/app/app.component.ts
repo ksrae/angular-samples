@@ -11,19 +11,18 @@ export class AppComponent implements OnInit {
   title = 'ngx-translate-extends';
 
   constructor(
-    private translateService: CommonTranslateService,
+    private translateService: TranslateService,
     // private translateService: TranslateService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
-      this.translateService.setDefaultLang('en');
-      this.translateService.use('en');
+      this.translateService.setDefaultLang('aaa');
+      this.translateService.use('aaa');
   }
 
   change() {
-    // console.log(this.translateService.currentLang);
-    this.translateService.use(this.translateService.currentLang === 'ko' ? 'en': 'ko');
+    console.log(this.translateService.currentLang);
+
+    this.translateService.use(this.translateService.currentLang === 'aaa' ? 'bbb': 'aaa');
   }
 }

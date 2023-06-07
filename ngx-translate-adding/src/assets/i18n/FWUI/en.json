@@ -1,0 +1,10 @@
+{
+  "FWUI.LABEL.MODAL04-SAMPLE01.HEADER": "04.Modal  -  sample01",
+  "FWUI.LABEL.MODAL04-SAMPLE01.TITLE": "Open Modal (3 buttons)",
+  "FWUI.LABEL.MODAL04-SAMPLE01.CONTENTS": "Do you want to deploy the <b>DCP ver.02?</b> <br/>If you click 'Deploy later', it will be deployed in next process.",
+  "FWUI.LABEL.MODAL04-SAMPLE01.BUTTON-DEPLOY-LATER": "Deploy later",
+  "FWUI.LABEL.MODAL04-SAMPLE01.BUTTON-DEPLOY": "Deploy now",
+  "FWUI.LABEL.MODAL04-SAMPLE02.HEADER": "04.Modal  -  sample02",
+  "FWUI.LABEL.MODAL04-SAMPLE02.TITLE": "Open Modal (2 buttons)",
+  "FWUI.LABEL.MODAL04-SAMPLE02.CONTENTS": "Contents text"
+}

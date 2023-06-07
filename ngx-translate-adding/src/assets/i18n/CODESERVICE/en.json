@@ -1,0 +1,19 @@
+{
+  "CODESERVICE.LABEL.PLACEHOLDER.NO_SELECTED_CATEGORY": "There are no categories selected. Please select a category.",
+  "CODESERVICE.MESSAGE.CREATE.SERVICE": "The <b>{{name}}</b> service has been created successfully.",
+  "CODESERVICE.MESSAGE.CREATE.CATEGORY": "The <b>{{name}}</b> category has been created successfully.",
+  "CODESERVICE.MESSAGE.CREATE.CODE": "The code has been created and modified successfully.",
+  "CODESERVICE.MESSAGE.MODIFIED.SERVICE": "The <b>{{name}}</b> service has been modified.",
+  "CODESERVICE.MESSAGE.MODIFIED.CATEGORY": "The <b>{{name}}</b> category has been modified.",
+  "CODESERVICE.MESSAGE.MODIFIED.CODE": "The codes have been modified.",
+  "CODESERVICE.MESSAGE.DELETE.SERVICE": "The <b>{{name}}</b> service was deleted successfully.",
+  "CODESERVICE.MESSAGE.DELETE.CATEGORY": "The <b>{{name}}</b> category was deleted successfully.",
+  "CODESERVICE.MESSAGE.DELETE.CODE": "The selected code has been deleted successfully.",
+  "CODESERVICE.MESSAGE.VALIDATE.EMPTY": "The value <b>{{name}}</b> is empty.",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.SERVICE": "Duplicate Service name.",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.CATEGORY": "Duplicate Category name.",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.CODE": "Duplicate code found. code:{{code}} name:{{name}}",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.ORDER": "The entered Order :'{{name}}' already exists.",
+  "CODESERVICE.MESSAGE.CONFIRM.DELETE": "Are you sure you want to delete it?",
+  "CODESERVICE.MESSAGE.NO_DATA_SELECTED": "No data is selected. Please select data."
+}

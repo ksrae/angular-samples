@@ -1,0 +1,10 @@
+{
+  "DDMS_APP.COMPONENTS.DESCRIPTION": "Put item just once in component or as private of component.",
+  "DDMS_APP.COMPONENTS.LOGIN.401": "Unauthorized",
+  "DDMS_APP.COMPONENTS.LOGIN.404": "Not found",
+  "DDMS_APP.COMPONENTS.LOGIN.504": "Gateway can't reachable.",
+  "DDMS_APP.COMPONENTS.NOTIFY.INFO": "{{response}}",
+  "DDMS_APP.COMPONENTS.NOTIFY.SUCCESS": "{{response}}",
+  "DDMS_APP.COMPONENTS.NOTIFY.WARNING": "{{response}}",
+  "DDMS_APP.COMPONENTS.NOTIFY.ERROR": "{{response}}"
+}

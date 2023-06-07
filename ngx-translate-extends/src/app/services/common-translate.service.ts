@@ -12,7 +12,7 @@ export class CommonTranslateService extends TranslateService {
     override parser: TranslateParser,
     override missingTranslationHandler: MissingTranslationHandler,
   ) {
-    super(store, currentLoader, compiler, parser, missingTranslationHandler, true, false, true, '');
+    super(store, currentLoader, compiler, parser, missingTranslationHandler, true, false, true, 'ko');
   }
   // isolate 기능을 구현할 수 없으며 무조건 false로만 동작해야 함.
 

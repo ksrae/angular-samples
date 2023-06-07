@@ -10,17 +10,22 @@ import { TranslateService } from '@ngx-translate/core';
 export class MainComponent implements OnInit {
 
   constructor(
-    private translateService: CommonTranslateService,
+    private translateService: TranslateService,
     // private translateService: TranslateService
   ) { }
 
   ngOnInit() {
-    this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
+    // this.translateService.setDefaultLang('en');
+    // this.translateService.use('en');
+
   }
 
   change1() {
-    console.log(this.translateService.currentLang);
-    this.translateService.use(this.translateService.currentLang === 'ko' ? 'en': 'ko');
+    // this.translateService.use(this.translateService.currentLang === 'ko' ? 'en': 'ko');
+
+    // this.translateService.getTranslation(this.translateService.currentLang).subscribe(res => {
+    //   console.log(res);
+
+    // });
   }
 }

@@ -1,0 +1,10 @@
+{
+  "OCAP_RESULT_VIEW.CHART.ERROR": "[ERROR] load summary chart data",
+  "OCAP_RESULT_VIEW.CHART.TIMEOUT": "[TIMEOUT] load summary chart data",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.CONTEXT_TYPE": "{{name}} 은(는) 이미 설정한 context type 입니다.",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.ALARM": "{{key}} Alarm {{name}} 응답 에러 {{result}}",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.NO_DATA": "Data 가 없습니다.",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.DRILL_DOWN": "parameter 에 {{name}} 을 drill down 할 수 없습니다.",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.LOCATION": "Tool-Information 서비스에서 location 을 먼저 입력하세요.",
+  "OCAP_RESULT_VIEW.MESSAGE.ERROR.NO_PANE": "Id {{name}} 로 삭제할 패널을 찾을수 없습니다."
+}

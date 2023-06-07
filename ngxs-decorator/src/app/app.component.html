@@ -1,0 +1,30 @@
+<span>Total Count: </span>
+<p>{{totalCount$ | async}}</p>
+<br/>
+
+
+
+<button (click)="increment()">Increment</button>
+<br/>
+<button (click)="setCount()">Reset Count</button>
+<br/>
+<button (click)="sendMessage()">Send Message</button>
+<br/>
+
+<span>getUserInfo:</span>
+<br/>
+<ul *ngFor="let user of users$ | async">
+  <li>Name: {{user.name}}</li>
+  <li>Notes: {{user.notes}}</li>
+</ul>
+<button (click)="setUser('a')">Set User-A</button>
+<br/>
+<button (click)="setUser('b')">Set User-B</button>
+<br/>
+<button (click)="setUser('c')">Set User-C</button>
+<br/>
+
+<span>message: </span>
+<ng-container *ngFor="let message of (messages$ | async)">
+  <p>{{message | json}}</p>
+</ng-container>

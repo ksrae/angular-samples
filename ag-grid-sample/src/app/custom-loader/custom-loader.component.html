@@ -1,0 +1,12 @@
+<p>custom-loader works!</p>
+
+<ag-grid-angular
+  style="width: 100%; height: 100%;"
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [loadingOverlayComponent]="loadingOverlayComponent"
+  [loadingOverlayComponentParams]="loadingOverlayComponentParams"
+  (gridReady)="onGridReady($event)">
+</ag-grid-angular>

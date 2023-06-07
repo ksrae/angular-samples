@@ -1,0 +1,30 @@
+<button (click)="lang('ko')">ko</button>
+<button (click)="lang('en')">en</button>
+
+
+<p>{{ 'default' | translate }}</p>
+
+
+<a style="padding-right:10px;" [routerLink]="['./codeservice']">CodeService</a>
+<a style="padding-right:10px;" [routerLink]="['./condition']">Condition</a>
+<a style="padding-right:10px;" [routerLink]="['./dcp']">Dcp</a>
+<a style="padding-right:10px;" [routerLink]="['./ddms']">DDMS</a>
+<a style="padding-right:10px;" [routerLink]="['./dss']">DSS</a>
+<a style="padding-right:10px;" [routerLink]="['./fwui']">FWUI</a>
+<a style="padding-right:10px;" [routerLink]="['./mi']">MI</a>
+<a style="padding-right:10px;" [routerLink]="['./ocapmanagement']">Ocap Management</a>
+<a style="padding-right:10px;" [routerLink]="['./ocapresultview']">Ocap Result View</a>
+<a style="padding-right:10px;" [routerLink]="['./shared']">Shared</a>
+<a style="padding-right:10px;" [routerLink]="['./spc']">SPC</a>
+<a style="padding-right:10px;" [routerLink]="['./toolinformation']">Tool Information Management</a>
+<a style="padding-right:10px;" [routerLink]="['./tpc']">TPC</a>
+
+<router-outlet></router-outlet>
+
+<br/>
+<br/>
+
+<a [routerLink]="['/']">CLOSE</a>
+
+
+<app-temp></app-temp>

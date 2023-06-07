@@ -1,0 +1,19 @@
+{
+  "CODESERVICE.LABEL.PLACEHOLDER.NO_SELECTED_CATEGORY": "선택된 카테고리가 없습니다. 카테고리를 선택해주세요.",
+  "CODESERVICE.MESSAGE.CREATE.SERVICE": "<b>{{name}}</b> 서비스를 생성했습니다.",
+  "CODESERVICE.MESSAGE.CREATE.CATEGORY": "<b>{{name}}</b> 카테고리를 생성했습니다.",
+  "CODESERVICE.MESSAGE.CREATE.CODE": "코드를 수정 및 생성했습니다.",
+  "CODESERVICE.MESSAGE.MODIFIED.SERVICE": "<b>{{name}}</b> 서비스를 수정했습니다.",
+  "CODESERVICE.MESSAGE.MODIFIED.CATEGORY": "<b>{{name}}</b> 카테고리를 수정했습니다.",
+  "CODESERVICE.MESSAGE.MODIFIED.CODE": "코드 변경사항을 저장했습니다.",
+  "CODESERVICE.MESSAGE.DELETE.SERVICE": "<b>{{name}}</b> 서비스를 삭제했습니다.",
+  "CODESERVICE.MESSAGE.DELETE.CATEGORY": "<b>{{name}}</b> 카테고리를 삭제했습니다.",
+  "CODESERVICE.MESSAGE.DELETE.CODE": "선택된 코드를 삭제했습니다.",
+  "CODESERVICE.MESSAGE.VALIDATE.EMPTY": "<b>{{name}}</b> 값이 비어있습니다.",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.SERVICE": "Service 이름이 중복되었습니다.",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.CATEGORY": "Category 이름이 중복되었습니다.",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.CODE": "중복된 Code가 있습니다. code:{{code}} name:{{name}}",
+  "CODESERVICE.MESSAGE.VALIDATE.DUPLICATE.ORDER": "입력한 Order {{name}}가 이미 존재합니다.",
+  "CODESERVICE.MESSAGE.CONFIRM.DELETE": "정말로 삭제하시겠습니까?",
+  "CODESERVICE.MESSAGE.NO_DATA_SELECTED": "선택된 데이터가 없습니다. 데이터를 선택해주세요."
+}

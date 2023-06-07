@@ -1,0 +1,8 @@
+{
+  "CONDITION.EXIST": "Condition title is exist. you need to change a condition title.",
+  "CONDITION.NEW": "Save success",
+  "CONDITION.MODIFY": "Modify success",
+  "CONDITION.FAIL_NEW": "Fail to save",
+  "CONDITION.FAIL_MODIFY": "Fail to modify",
+  "CONDITION.MODIFY_SAVED": "The items of Condition that can be selected have been changed. Please delete the existing Saved Condition and create it again."
+}
