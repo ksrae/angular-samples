@@ -21,3 +21,5 @@ Example page.
 
 
 {{ NgDocActions.demo("CustomButtonDemoComponent") }}
+
+

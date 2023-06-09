@@ -1,12 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { ButtonDemoComponent } from 'src/app/button-demo/button-demo.component';
-import { NgDocButtonComponent } from '@ng-doc/ui-kit';
+
 import { CustomButtonDemoComponent } from 'src/app/custom-button-demo/custom-button-demo.component';
+import { ButtonDemoModule } from 'src/app/button-demo/button-demo.module';
 
 @NgModule({
-	imports: [CommonModule, NgDocButtonComponent],
+	imports: [CommonModule, ButtonDemoModule],
 	// Declare you demo components here
-	declarations: [ButtonDemoComponent, CustomButtonDemoComponent],
+	declarations: [CustomButtonDemoComponent],
+
 })
 export class ExamplesPageModule {}

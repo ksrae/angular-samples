@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { InputDemoModule } from "./input-demo/input-demo.module";
 
 
 
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    InputDemoModule,
       BrowserAnimationsModule,
       NgDocNavbarModule,
       NgDocSidebarModule,

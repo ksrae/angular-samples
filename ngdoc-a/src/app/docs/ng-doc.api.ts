@@ -11,6 +11,11 @@ const Api: NgDocApi = {
       route: 'examlibrary',
       include: 'src/app/sample.model.ts',
     },
+    {
+      name: 'example-service',
+      route: 'examService',
+      include: 'src/app/sample.service.ts',
+    },
 	],
 };
 

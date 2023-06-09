@@ -10,4 +10,5 @@ export class InputDemoComponent {
   @Input() key!: string;
   @Input() value!: string;
   @Input() disabled!: boolean;
+  @Input() color!: 'red' | 'blue'
 }

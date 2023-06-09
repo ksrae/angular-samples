@@ -3,7 +3,5 @@
 It's time to write some awesome docs!
 
 
-Link to the page: `*Examples`
+{{ NgDocActions.playground("InputPlayground") }}
 
-
-Link to the page: `google`
