@@ -1,0 +1,835 @@
+[
+  {
+    "id": "1",
+    "title": "(UTC-12:00) International Date Line West",
+    "identifier": "Etc/GMT+12",
+    "daylight": false
+  },
+  {
+    "id": "2",
+    "title": "(UTC-11:00) Coordinated Universal Time-11",
+    "identifier": "Etc/GMT+11",
+    "daylight": false
+  },
+  {
+    "id": "3",
+    "title": "(UTC-10:00) Aleutian Islands",
+    "identifier": "America/Adak",
+    "daylight": true
+  },
+  {
+    "id": "4",
+    "title": "(UTC-10:00) Hawaii",
+    "identifier": "Pacific/Honolulu",
+    "daylight": false
+  },
+  {
+    "id": "5",
+    "title": "(UTC-09:30) Marquesas Islands",
+    "identifier": "Pacific/Marquesas",
+    "daylight": false
+  },
+  {
+    "id": "6",
+    "title": "(UTC-09:00) Alaska",
+    "identifier": "America/Anchorage",
+    "daylight": true
+  },
+  {
+    "id": "7",
+    "title": "(UTC-09:00) Coordinated Universal Time-09",
+    "identifier": "Etc/GMT+9",
+    "daylight": false
+  },
+  {
+    "id": "8",
+    "title": "(UTC-08:00) Baja California",
+    "identifier": "America/Tijuana",
+    "daylight": true
+  },
+  {
+    "id": "9",
+    "title": "(UTC-08:00) Coordinated Universal Time-08",
+    "identifier": "Etc/GMT+8",
+    "daylight": false
+  },
+  {
+    "id": "10",
+    "title": "(UTC-08:00) Pacific Time (US & Canada)",
+    "identifier": "Canada/Pacific",
+    "daylight": true
+  },
+  {
+    "id": "11",
+    "title": "(UTC-07:00) Arizona",
+    "identifier": "America/Phoenix",
+    "daylight": false
+  },
+  {
+    "id": "12",
+    "title": "(UTC-07:00) La Paz, Mazatlan",
+    "identifier": "America/Mazatlan",
+    "daylight": false
+  },
+  {
+    "id": "13",
+    "title": "(UTC-07:00) Mountain Time (US & Canada)",
+    "identifier": "America/Denver",
+    "daylight": true
+  },
+  {
+    "id": "14",
+    "title": "(UTC-07:00) Yukon",
+    "identifier": "Canada/Yukon",
+    "daylight": false
+  },
+  {
+    "id": "15",
+    "title": "(UTC-06:00) Central America",
+    "identifier": "America/Costa_Rica",
+    "daylight": false
+  },
+  {
+    "id": "16",
+    "title": "(UTC-06:00) Central Time (US & Canada)",
+    "identifier": "America/Chicago",
+    "daylight": true
+  },
+  {
+    "id": "17",
+    "title": "(UTC-06:00) Easter Island",
+    "identifier": "Chile/EasterIsland",
+    "daylight": true
+  },
+  {
+    "id": "18",
+    "title": "(UTC-06:00) Guadalajara, Mexico City, Monterrey",
+    "identifier": "America/Mexico_City",
+    "daylight": false
+  },
+  {
+    "id": "19",
+    "title": "(UTC-06:00) Saskatchewan",
+    "identifier": "Canada/Saskatchewan",
+    "daylight": false
+  },
+  {
+    "id": "20",
+    "title": "(UTC-05:00) Bogota, Lima, Quito, Rio Branco",
+    "identifier": "America/Bogota",
+    "daylight": false
+  },
+  {
+    "id": "21",
+    "title": "(UTC-05:00) Chetumal",
+    "identifier": "Etc/GMT+5",
+    "daylight": false
+  },
+  {
+    "id": "22",
+    "title": "(UTC-05:00) Eastern Time (US & Canada)",
+    "identifier": "America/New_York",
+    "daylight": true
+  },
+  {
+    "id": "23",
+    "title": "(UTC-05:00) Haiti",
+    "identifier": "America/Port-au-Prince",
+    "daylight": true
+  },
+  {
+    "id": "24",
+    "title": "(UTC-05:00) Havana",
+    "identifier": "America/Havana",
+    "daylight": true
+  },
+  {
+    "id": "25",
+    "title": "(UTC-05:00) Indiana (East)",
+    "identifier": "America/Indiana/Indianapolis",
+    "daylight": true
+  },
+  {
+    "id": "26",
+    "title": "(UTC-05:00) Turks and Caicos",
+    "identifier": "America/Grand_Turk",
+    "daylight": true
+  },
+  {
+    "id": "27",
+    "title": "(UTC-04:00) Asuncion",
+    "identifier": "America/Asuncion",
+    "daylight": true
+  },
+  {
+    "id": "28",
+    "title": "(UTC-04:00) Atlantic Time (Canada)",
+    "identifier": "America/Halifax",
+    "daylight": true
+  },
+  {
+    "id": "29",
+    "title": "(UTC-04:00) Caracas",
+    "identifier": "America/Caracas",
+    "daylight": false
+  },
+  {
+    "id": "30",
+    "title": "(UTC-04:00) Cuiaba",
+    "identifier": "America/Cuiaba",
+    "daylight": false
+  },
+  {
+    "id": "31",
+    "title": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+    "identifier": "America/Manaus",
+    "daylight": false
+  },
+  {
+    "id": "32",
+    "title": "(UTC-04:00) Santiago",
+    "identifier": "America/Santiago",
+    "daylight": true
+  },
+  {
+    "id": "33",
+    "title": "(UTC-03:30) Newfoundland",
+    "identifier": "America/St_Johns",
+    "daylight": true
+  },
+  {
+    "id": "34",
+    "title": "(UTC-03:00) Araguaina",
+    "identifier": "America/Araguaina",
+    "daylight": false
+  },
+  {
+    "id": "35",
+    "title": "(UTC-03:00) Brasilia",
+    "daylight": false
+  },
+  {
+    "id": "36",
+    "title": "(UTC-03:00) Cayenne, Fortaleza",
+    "identifier": "America/Cayenne",
+    "daylight": false
+  },
+  {
+    "id": "37",
+    "title": "(UTC-03:00) City of Buenos Aires",
+    "identifier": "America/Argentina/Buenos_Aires",
+    "daylight": false
+  },
+  {
+    "id": "38",
+    "title": "(UTC-03:00) Greenland",
+    "identifier": "America/Miquelon",
+    "daylight": true
+  },
+  {
+    "id": "39",
+    "title": "(UTC-03:00) Montevideo",
+    "identifier": "America/Montevideo",
+    "daylight": false
+  },
+  {
+    "id": "40",
+    "title": "(UTC-03:00) Punta Arenas",
+    "identifier": "America/Punta_Arenas",
+    "daylight": false
+  },
+  {
+    "id": "41",
+    "title": "(UTC-03:00) Saint Pierre and Miquelon",
+    "identifier": "America/Miquelon",
+    "daylight": true
+  },
+  {
+    "id": "42",
+    "title": "(UTC-03:00) Salvador",
+    "identifier": "America/Bahia",
+    "daylight": false
+  },
+  {
+    "id": "43",
+    "title": "(UTC-02:00) Coordinated Universal Time-02",
+    "identifier": "Etc/GMT+2",
+    "daylight": false
+  },
+  {
+    "id": "44",
+    "title": "(UTC-01:00) Azores",
+    "identifier": "Atlantic/Azores",
+    "daylight": true
+  },
+  {
+    "id": "45",
+    "title": "(UTC-01:00) Cabo Verde Is.",
+    "identifier": "Atlantic/Cape_Verde",
+    "daylight": false
+  },
+  {
+    "id": "46",
+    "title": "(UTC) Coordinated Universal Time",
+    "identifier": "Etc/GMT",
+    "daylight": false
+  },
+  {
+    "id": "47",
+    "title": "(UTC+00:00) Dublin, Edinburgh, Lisbon, London",
+    "identifier": "Europe/London",
+    "daylight": true
+  },
+  {
+    "id": "48",
+    "title": "(UTC+00:00) Monrovia, Reykjavik",
+    "identifier": "Africa/Monrovia",
+    "daylight": false
+  },
+  {
+    "id": "49",
+    "title": "(UTC+00:00) Sao Tome",
+    "identifier": "Africa/Sao_Tome",
+    "daylight": false
+  },
+  {
+    "id": "50",
+    "title": "(UTC+01:00) Casablanca",
+    "identifier": "Africa/Casablanca",
+    "daylight": "x"
+  },
+  {
+    "id": "51",
+    "title": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+    "identifier": "Europe/Amsterdam",
+    "daylight": true
+  },
+  {
+    "id": "52",
+    "title": "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+    "identifier": "Europe/Belgrade",
+    "daylight": true
+  },
+  {
+    "id": "53",
+    "title": "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris",
+    "identifier": "Europe/Brussels",
+    "daylight": true
+  },
+  {
+    "id": "54",
+    "title": "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+    "identifier": "Europe/Sarajevo",
+    "daylight": true
+  },
+  {
+    "id": "55",
+    "title": "(UTC+01:00) West Central Africa",
+    "identifier": "Africa/Algiers",
+    "daylight": false
+  },
+  {
+    "id": "56",
+    "title": "(UTC+02:00) Athens, Bucharest",
+    "identifier": "Europe/Athens",
+    "daylight": true
+  },
+  {
+    "id": "57",
+    "title": "(UTC+02:00) Beirut",
+    "identifier": "Asia/Beirut",
+    "daylight": true
+  },
+  {
+    "id": "58",
+    "title": "(UTC+02:00) Cairo",
+    "identifier": "Africa/Cairo",
+    "daylight": true
+  },
+  {
+    "id": "59",
+    "title": "(UTC+02:00) Chisinau",
+    "identifier": "Europe/Chisinau",
+    "daylight": true
+  },
+  {
+    "id": "60",
+    "title": "(UTC+02:00) Damascus",
+    "identifier": "Asia/Damascus",
+    "daylight": "x"
+  },
+  {
+    "id": "61",
+    "title": "(UTC+02:00) Gaza, Hebron",
+    "identifier": "Asia/Gaza",
+    "daylight": "x"
+  },
+  {
+    "id": "62",
+    "title": "(UTC+02:00) Harare, Pretoria",
+    "identifier": "Africa/Harare",
+    "daylight": false
+  },
+  {
+    "id": "63",
+    "title": "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
+    "identifier": "Europe/Helsinki",
+    "daylight": true
+  },
+  {
+    "id": "64",
+    "title": "(UTC+02:00) Jerusalem",
+    "identifier": "Asia/Jerusalem",
+    "daylight": "x"
+  },
+  {
+    "id": "65",
+    "title": "(UTC+02:00) Juba",
+    "identifier": "Africa/Juba",
+    "daylight": false
+  },
+  {
+    "id": "66",
+    "title": "(UTC+02:00) Kaliningrad",
+    "identifier": "Europe/Kaliningrad",
+    "daylight": false
+  },
+  {
+    "id": "67",
+    "title": "(UTC+02:00) Khartoum",
+    "identifier": "Africa/Khartoum",
+    "daylight": false
+  },
+  {
+    "id": "68",
+    "title": "(UTC+02:00) Tripoli",
+    "identifier": "Africa/Tripoli",
+    "daylight": false
+  },
+  {
+    "id": "69",
+    "title": "(UTC+02:00) Windhoek",
+    "identifier": "Africa/Windhoek",
+    "daylight": false
+  },
+  {
+    "id": "70",
+    "title": "(UTC+03:00) Amman",
+    "identifier": "Asia/Amman",
+    "daylight": false
+  },
+  {
+    "id": "71",
+    "title": "(UTC+03:00) Baghdad",
+    "identifier": "Asia/Baghdad",
+    "daylight": false
+  },
+  {
+    "id": "72",
+    "title": "(UTC+03:00) Istanbul",
+    "identifier": "Europe/Istanbul",
+    "daylight": false
+  },
+  {
+    "id": "73",
+    "title": "(UTC+03:00) Kuwait, Riyadh",
+    "identifier": "Asia/Kuwait",
+    "daylight": false
+  },
+  {
+    "id": "74",
+    "title": "(UTC+03:00) Minsk",
+    "identifier": "Europe/Minsk",
+    "daylight": false
+  },
+  {
+    "id": "75",
+    "title": "(UTC+03:00) Moscow, St. Petersburg",
+    "identifier": "Europe/Moscow",
+    "daylight": false
+  },
+  {
+    "id": "76",
+    "title": "(UTC+03:00) Nairobi",
+    "identifier": "Africa/Nairobi",
+    "daylight": false
+  },
+  {
+    "id": "77",
+    "title": "(UTC+03:00) Volgograd",
+    "identifier": "Europe/Volgograd",
+    "daylight": false
+  },
+  {
+    "id": "78",
+    "title": "(UTC+03:30) Tehran",
+    "identifier": "Asia/Tehran",
+    "daylight": false
+  },
+  {
+    "id": "79",
+    "title": "(UTC+04:00) Abu Dhabi, Muscat",
+    "identifier": "Asia/Dubai",
+    "daylight": false
+  },
+  {
+    "id": "80",
+    "title": "(UTC+04:00) Astrakhan, Ulyanovsk",
+    "identifier": "Europe/Astrakhan",
+    "daylight": false
+  },
+  {
+    "id": "81",
+    "title": "(UTC+04:00) Baku",
+    "identifier": "Asia/Baku",
+    "daylight": false
+  },
+  {
+    "id": "82",
+    "title": "(UTC+04:00) Izhevsk, Samara",
+    "identifier": "Europe/Samara",
+    "daylight": false
+  },
+  {
+    "id": "83",
+    "title": "(UTC+04:00) Port Louis",
+    "identifier": "Indian/Mauritius",
+    "daylight": false
+  },
+  {
+    "id": "84",
+    "title": "(UTC+04:00) Saratov",
+    "identifier": "Europe/Saratov",
+    "daylight": false
+  },
+  {
+    "id": "85",
+    "title": "(UTC+04:00) Tbilisi",
+    "identifier": "Asia/Tbilisi",
+    "daylight": false
+  },
+  {
+    "id": "86",
+    "title": "(UTC+04:00) Yerevan",
+    "identifier": "Asia/Yerevan",
+    "daylight": false
+  },
+  {
+    "id": "87",
+    "title": "(UTC+04:30) Kabul",
+    "identifier": "Asia/Kabul",
+    "daylight": false
+  },
+  {
+    "id": "88",
+    "title": "(UTC+05:00) Ashgabat, Tashkent",
+    "identifier": "Asia/Ashgabat",
+    "daylight": false
+  },
+  {
+    "id": "89",
+    "title": "(UTC+05:00) Ekaterinburg",
+    "identifier": "Asia/Yekaterinburg",
+    "daylight": false
+  },
+  {
+    "id": "90",
+    "title": "(UTC+05:00) Islamabad, Karachi",
+    "identifier": "Asia/Karachi",
+    "daylight": false
+  },
+  {
+    "id": "91",
+    "title": "(UTC+05:00) Qyzylorda",
+    "identifier": "Asia/Qyzylorda",
+    "daylight": false
+  },
+  {
+    "id": "92",
+    "title": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+    "identifier": "Asia/Kolkata",
+    "daylight": false
+  },
+  {
+    "id": "93",
+    "title": "(UTC+05:30) Sri Jayawardenepura",
+    "identifier": "Asia/Colombo",
+    "daylight": false
+  },
+  {
+    "id": "94",
+    "title": "(UTC+05:45) Kathmandu",
+    "identifier": "Asia/Kathmandu",
+    "daylight": false
+  },
+  {
+    "id": "95",
+    "title": "(UTC+06:00) Astana",
+    "identifier": "Asia/Almaty",
+    "daylight": false
+  },
+  {
+    "id": "96",
+    "title": "(UTC+06:00) Dhaka",
+    "identifier": "Asia/Dhaka",
+    "daylight": false
+  },
+  {
+    "id": "97",
+    "title": "(UTC+06:00) Omsk",
+    "identifier": "Asia/Omsk",
+    "daylight": false
+  },
+  {
+    "id": "98",
+    "title": "(UTC+06:30) Yangon (Rangoon)",
+    "identifier": "Asia/Yangon",
+    "daylight": false
+  },
+  {
+    "id": "99",
+    "title": "(UTC+07:00) Bangkok, Hanoi, Jakarta",
+    "identifier": "Asia/Bangkok",
+    "daylight": false
+  },
+  {
+    "id": "100",
+    "title": "(UTC+07:00) Barnaul, Gorno-Altaysk",
+    "identifier": "Asia/Barnaul",
+    "daylight": false
+  },
+  {
+    "id": "101",
+    "title": "(UTC+07:00) Hovd",
+    "identifier": "Asia/Hovd",
+    "daylight": false
+  },
+  {
+    "id": "102",
+    "title": "(UTC+07:00) Krasnoyarsk",
+    "identifier": "Asia/Krasnoyarsk",
+    "daylight": false
+  },
+  {
+    "id": "103",
+    "title": "(UTC+07:00) Novosibirsk",
+    "identifier": "Asia/Novosibirsk",
+    "daylight": false
+  },
+  {
+    "id": "104",
+    "title": "(UTC+07:00) Tomsk",
+    "identifier": "Asia/Tomsk",
+    "daylight": false
+  },
+  {
+    "id": "105",
+    "title": "(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi",
+    "identifier": "Asia/Shanghai",
+    "daylight": false
+  },
+  {
+    "id": "106",
+    "title": "(UTC+08:00) Irkutsk",
+    "identifier": "Asia/Irkutsk",
+    "daylight": false
+  },
+  {
+    "id": "107",
+    "title": "(UTC+08:00) Kuala Lumpur, Singapore",
+    "identifier": "Asia/Kuala_Lumpur",
+    "daylight": false
+  },
+  {
+    "id": "108",
+    "title": "(UTC+08:00) Perth",
+    "identifier": "Australia/Perth",
+    "daylight": false
+  },
+  {
+    "id": "109",
+    "title": "(UTC+08:00) Taipei",
+    "identifier": "Asia/Taipei",
+    "daylight": false
+  },
+  {
+    "id": "110",
+    "title": "(UTC+08:00) Ulaanbaatar",
+    "identifier": "Asia/Ulaanbaatar",
+    "daylight": false
+  },
+  {
+    "id": "111",
+    "title": "(UTC+08:45) Eucla",
+    "identifier": "Australia/Eucla",
+    "daylight": false
+  },
+  {
+    "id": "112",
+    "title": "(UTC+09:00) Chita",
+    "identifier": "Asia/Chita",
+    "daylight": false
+  },
+  {
+    "id": "113",
+    "title": "(UTC+09:00) Osaka, Sapporo, Tokyo",
+    "identifier": "Asia/Tokyo",
+    "daylight": false
+  },
+  {
+    "id": "114",
+    "title": "(UTC+09:00) Pyongyang",
+    "identifier": "Asia/Pyongyang",
+    "daylight": false
+  },
+  {
+    "id": "115",
+    "title": "(UTC+09:00) Seoul",
+    "identifier": "Asia/Seoul",
+    "daylight": false
+  },
+  {
+    "id": "116",
+    "title": "(UTC+09:00) Yakutsk",
+    "identifier": "Asia/Yakutsk",
+    "daylight": false
+  },
+  {
+    "id": "117",
+    "title": "(UTC+09:30) Adelaide",
+    "identifier": "Australia/Adelaide",
+    "daylight": true
+  },
+  {
+    "id": "118",
+    "title": "(UTC+09:30) Darwin",
+    "identifier": "Australia/Darwin",
+    "daylight": false
+  },
+  {
+    "id": "119",
+    "title": "(UTC+10:00) Brisbane",
+    "identifier": "Australia/Brisbane",
+    "daylight": false
+  },
+  {
+    "id": "120",
+    "title": "(UTC+10:00) Canberra, Melbourne, Sydney",
+    "identifier": "Australia/Sydney",
+    "daylight": true
+  },
+  {
+    "id": "121",
+    "title": "(UTC+10:00) Guam, Port Moresby",
+    "identifier": "Pacific/Guam",
+    "daylight": false
+  },
+  {
+    "id": "122",
+    "title": "(UTC+10:00) Hobart",
+    "identifier": "Australia/Hobart",
+    "daylight": true
+  },
+  {
+    "id": "123",
+    "title": "(UTC+10:00) Vladivostok",
+    "identifier": "Asia/Vladivostok",
+    "daylight": false
+  },
+  {
+    "id": "124",
+    "title": "(UTC+10:30) Lord Howe Island",
+    "identifier": "Australia/Lord_Howe",
+    "daylight": true
+  },
+  {
+    "id": "125",
+    "title": "(UTC+11:00) Bougainville Island",
+    "identifier": "Pacific/Bougainville",
+    "daylight": false
+  },
+  {
+    "id": "126",
+    "title": "(UTC+11:00) Chokurdakh",
+    "identifier": "Pacific/Bougainville",
+    "daylight": false
+  },
+  {
+    "id": "127",
+    "title": "(UTC+11:00) Magadan",
+    "identifier": "Asia/Magadan",
+    "daylight": false
+  },
+  {
+    "id": "128",
+    "title": "(UTC+11:00) Norfolk Island",
+    "identifier": "Pacific/Norfolk",
+    "daylight": true
+  },
+  {
+    "id": "129",
+    "title": "(UTC+11:00) Sakhalin",
+    "identifier": "Asia/Sakhalin",
+    "daylight": false
+  },
+  {
+    "id": "130",
+    "title": "(UTC+11:00) Solomon Is., New Caledonia",
+    "identifier": "Pacific/Guadalcanal",
+    "daylight": false
+  },
+  {
+    "id": "131",
+    "title": "(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky",
+    "identifier": "Asia/Kamchatka",
+    "daylight": false
+  },
+  {
+    "id": "132",
+    "title": "(UTC+12:00) Auckland, Wellington",
+    "identifier": "Pacific/Auckland",
+    "daylight": true
+  },
+  {
+    "id": "133",
+    "title": "(UTC+12:00) Coordinated Universal Time+12",
+    "identifier": "Etc/GMT-12",
+    "daylight": false
+  },
+  {
+    "id": "134",
+    "title": "(UTC+12:00) Fiji",
+    "identifier": "Pacific/Fiji",
+    "daylight": false
+  },
+  {
+    "id": "135",
+    "title": "(UTC+12:45) Chatham Islands",
+    "identifier": "Pacific/Chatham",
+    "daylight": true
+  },
+  {
+    "id": "136",
+    "title": "(UTC+13:00) Coordinated Universal Time+13",
+    "identifier": "Etc/GMT-13",
+    "daylight": false
+  },
+  {
+    "id": "137",
+    "title": "(UTC+13:00) Nuku'alofa",
+    "identifier": "Pacific/Tongatapu",
+    "daylight": false
+  },
+  {
+    "id": "138",
+    "title": "(UTC+13:00) Samoa",
+    "identifier": "Pacific/Samoa",
+    "daylight": true
+  },
+  {
+    "id": "139",
+    "title": "(UTC+14:00) Kiritimati Island",
+    "identifier": "Pacific/Kiritimati",
+    "daylight": false
+  }
+]

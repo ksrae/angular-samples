@@ -1,0 +1,16 @@
+<div>{{ 1688033634000 | timezone: 'yyyy-MM-dd hh:mm:ss ZZ' }}</div>
+
+<div>{{ 1688033634000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss ZZ': 'ko-KR': 'Asia/Seoul'}}</div>
+<div>{{ 1702104869000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss ZZ': 'en-US': 'America/Los_Angeles'}}</div>
+<div>{{ 1688033634000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss ZZ': 'fr': 'America/New_York'}}</div>
+
+<select [formControl]="timezoneControl">
+  <ng-container *ngFor="let item of timezone$ | async">
+    <option [value]="item.id">{{item.title}}</option>
+  </ng-container>
+</select>
+
+<div>current time: {{today}}</div>
+<div>timezone set: {{aaa}}</div>
+<!--
+<div>{{bbb}}</div> -->
