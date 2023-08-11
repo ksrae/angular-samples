@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   toggleDST = false;
 
   today: any;
-  currentZoneName!: string | null;
 
   constructor(
     private configService: ConfigService
@@ -29,8 +28,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.timezone$ = this.configService.config;
-    this.currentZoneName = DateTime.local().zoneName;
-    this.timezoneControl.setValue(this.currentZoneName);
+    this.timezoneControl.setValue(DateTime.local().zoneName);
 
     this.today = DateTime.now().toFormat('yyyy MMM dd hh:mm:ss a');
     this.setTimezone(this.timezoneControl.value);

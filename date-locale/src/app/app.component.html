@@ -13,13 +13,15 @@
 <br/>
 <span>Time timezone {{isDSTOn ? 'support': 'no support'}} DST.</span>
 <br/>
+<div>Adjust for daylight saving time automatically {{isDSTOn ? 'ON' : 'OFF'}}</div>
 <button *ngIf="isDSTOn" (click)="setDST()">
-  DST <span>{{toggleDST ? 'OFF' : 'ON'}}</span>
+<span>{{toggleDST ? 'OFF' : 'ON'}}</span>
 </button>
+
 
 <p>&nbsp;</p>
 
-<div>locale({{currentZoneName}}) time: {{today}}</div>
+<div>locale time: {{today}}</div>
 <div>timezone set: {{aaa}}</div>
 
 <p>&nbsp;</p>

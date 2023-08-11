@@ -37,7 +37,7 @@
   },
   {
     "title": "(UTC-08:00) Pacific Time (US & Canada)",
-    "identifier": "Canada/Pacific"
+    "identifier": "America/Los_Angeles"
   },
   {
     "title": "(UTC-07:00) Arizona",
@@ -53,11 +53,11 @@
   },
   {
     "title": "(UTC-07:00) Yukon",
-    "identifier": "Canada/Yukon"
+    "identifier": "America/Whitehorse"
   },
   {
     "title": "(UTC-06:00) Central America",
-    "identifier": "America/Costa_Rica"
+    "identifier": "America/Guatemala"
   },
   {
     "title": "(UTC-06:00) Central Time (US & Canada)",
@@ -65,7 +65,7 @@
   },
   {
     "title": "(UTC-06:00) Easter Island",
-    "identifier": "Chile/EasterIsland"
+    "identifier": "Pacific/Easter"
   },
   {
     "title": "(UTC-06:00) Guadalajara, Mexico City, Monterrey",
@@ -73,7 +73,7 @@
   },
   {
     "title": "(UTC-06:00) Saskatchewan",
-    "identifier": "Canada/Saskatchewan"
+    "identifier": "America/Regina"
   },
   {
     "title": "(UTC-05:00) Bogota, Lima, Quito, Rio Branco",
@@ -81,7 +81,7 @@
   },
   {
     "title": "(UTC-05:00) Chetumal",
-    "identifier": "Etc/GMT+5"
+    "identifier": "America/Cancun"
   },
   {
     "title": "(UTC-05:00) Eastern Time (US & Canada)",
@@ -97,7 +97,7 @@
   },
   {
     "title": "(UTC-05:00) Indiana (East)",
-    "identifier": "America/Indiana/Indianapolis"
+    "identifier": "America/Indianapolis"
   },
   {
     "title": "(UTC-05:00) Turks and Caicos",
@@ -121,7 +121,7 @@
   },
   {
     "title": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
-    "identifier": "America/Manaus"
+    "identifier": "America/La_Paz"
   },
   {
     "title": "(UTC-04:00) Santiago",
@@ -145,11 +145,11 @@
   },
   {
     "title": "(UTC-03:00) City of Buenos Aires",
-    "identifier": "America/Argentina/Buenos_Aires"
+    "identifier": "America/Buenos_Aires"
   },
   {
     "title": "(UTC-03:00) Greenland",
-    "identifier": "America/Nuuk"
+    "identifier": "America/Godthab"
   },
   {
     "title": "(UTC-03:00) Montevideo",
@@ -181,7 +181,7 @@
   },
   {
     "title": "(UTC) Coordinated Universal Time",
-    "identifier": "Etc/GMT"
+    "identifier": "UTC"
   },
   {
     "title": "(UTC+00:00) Dublin, Edinburgh, Lisbon, London",
@@ -189,7 +189,7 @@
   },
   {
     "title": "(UTC+00:00) Monrovia, Reykjavik",
-    "identifier": "Africa/Monrovia"
+    "identifier": "Atlantic/Reykjavik"
   },
   {
     "title": "(UTC+00:00) Sao Tome",
@@ -201,27 +201,27 @@
   },
   {
     "title": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
-    "identifier": "Europe/Amsterdam"
+    "identifier": "Europe/Berlin"
   },
   {
     "title": "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
-    "identifier": "Europe/Belgrade"
+    "identifier": "Europe/Budapest"
   },
   {
     "title": "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris",
-    "identifier": "Europe/Brussels"
+    "identifier": "Europe/Paris"
   },
   {
     "title": "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
-    "identifier": "Europe/Sarajevo"
+    "identifier": "Europe/Warsaw"
   },
   {
     "title": "(UTC+01:00) West Central Africa",
-    "identifier": "Africa/Algiers"
+    "identifier": "Africa/Lagos"
   },
   {
     "title": "(UTC+02:00) Athens, Bucharest",
-    "identifier": "Europe/Athens"
+    "identifier": "Europe/Bucharest"
   },
   {
     "title": "(UTC+02:00) Beirut",
@@ -241,15 +241,15 @@
   },
   {
     "title": "(UTC+02:00) Gaza, Hebron",
-    "identifier": "Asia/Gaza"
+    "identifier": "Asia/Hebron"
   },
   {
     "title": "(UTC+02:00) Harare, Pretoria",
-    "identifier": "Africa/Harare"
+    "identifier": "Africa/Johannesburg"
   },
   {
     "title": "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
-    "identifier": "Europe/Helsinki"
+    "identifier": "Europe/Kiev"
   },
   {
     "title": "(UTC+02:00) Jerusalem",
@@ -289,7 +289,7 @@
   },
   {
     "title": "(UTC+03:00) Kuwait, Riyadh",
-    "identifier": "Asia/Kuwait"
+    "identifier": "Asia/Riyadh"
   },
   {
     "title": "(UTC+03:00) Minsk",
@@ -349,7 +349,7 @@
   },
   {
     "title": "(UTC+05:00) Ashgabat, Tashkent",
-    "identifier": "Asia/Ashgabat"
+    "identifier": "Asia/Tashkent"
   },
   {
     "title": "(UTC+05:00) Ekaterinburg",
@@ -365,7 +365,7 @@
   },
   {
     "title": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
-    "identifier": "Asia/Kolkata"
+    "identifier": "Asia/Calcutta"
   },
   {
     "title": "(UTC+05:30) Sri Jayawardenepura",
@@ -373,7 +373,7 @@
   },
   {
     "title": "(UTC+05:45) Kathmandu",
-    "identifier": "Asia/Kathmandu"
+    "identifier": "Asia/Katmandu"
   },
   {
     "title": "(UTC+06:00) Astana",
@@ -389,7 +389,7 @@
   },
   {
     "title": "(UTC+06:30) Yangon (Rangoon)",
-    "identifier": "Asia/Yangon"
+    "identifier": "Asia/Rangoon"
   },
   {
     "title": "(UTC+07:00) Bangkok, Hanoi, Jakarta",
@@ -425,7 +425,7 @@
   },
   {
     "title": "(UTC+08:00) Kuala Lumpur, Singapore",
-    "identifier": "Asia/Kuala_Lumpur"
+    "identifier": "Asia/Singapore"
   },
   {
     "title": "(UTC+08:00) Perth",
@@ -481,7 +481,7 @@
   },
   {
     "title": "(UTC+10:00) Guam, Port Moresby",
-    "identifier": "Pacific/Guam"
+    "identifier": "Pacific/Port_Moresby"
   },
   {
     "title": "(UTC+10:00) Hobart",
@@ -501,7 +501,7 @@
   },
   {
     "title": "(UTC+11:00) Chokurdakh",
-    "identifier": "Pacific/Bougainville"
+    "identifier": "Asia/Srednekolymsk"
   },
   {
     "title": "(UTC+11:00) Magadan",
@@ -549,7 +549,7 @@
   },
   {
     "title": "(UTC+13:00) Samoa",
-    "identifier": "Pacific/Samoa"
+    "identifier": "Pacific/Apia"
   },
   {
     "title": "(UTC+14:00) Kiritimati Island",
