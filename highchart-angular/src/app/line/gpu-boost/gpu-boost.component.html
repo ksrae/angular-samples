@@ -1,0 +1,67 @@
+<div id="chart-line"></div>
+
+<pre>
+  10,000,000 개 기준 (5번 중 가장 빠른 값)
+  - 테스트 결과
+  -- 모든 옵션을 true로 설정하면 가장 효과 있음
+  -- allowForce는 큰 영향이 없으므로 상황에 따라 false로 설정
+  -- usePreallocated는 영향이 있으므로 가능한 true로 설정하되 상황에 따라 변경 가능
+
+  - 테스트 진행
+  -- 테스트 1: <b>6468.008056640625 ms</b>
+  boost: &#123;
+    allowForce: true,
+    useGPUTranslations: true,
+    usePreallocated: true,
+  &#125;,
+
+  -- 테스트 2: <b>8501.033935546875 ms</b>
+  boost: &#123;
+    allowForce: true,
+    useGPUTranslations: true,
+    usePreallocated: false,
+  &#125;,
+
+  -- 테스트 3: <b>13815.758056640625 ms</b>
+  boost: &#123;
+    allowForce: true,
+    useGPUTranslations: false,
+    usePreallocated: true,
+  &#125;,
+
+  -- 테스트 4: <b>17436.51708984375 ms</b>
+  boost: &#123;
+    allowForce: true,
+    useGPUTranslations: false,
+    usePreallocated: false,
+  &#125;,
+
+  -- 테스트 5: <b>6705.831787109375 ms</b>
+  boost: &#123;
+    allowForce: false,
+    useGPUTranslations: true,
+    usePreallocated: true,
+  &#125;,
+
+  -- 테스트 6: <b>10069.60498046875 ms</b>
+  boost: &#123;
+    allowForce: false,
+    useGPUTranslations: true,
+    usePreallocated: false,
+  &#125;,
+
+  -- 테스트 7: <b>18778.851806640625 ms</b>
+  boost: &#123;
+    allowForce: false,
+    useGPUTranslations: false,
+    usePreallocated: true,
+  &#125;,
+
+  -- 테스트 8: <b>18133.662841796875 ms</b>
+  boost: &#123;
+    allowForce: false,
+    useGPUTranslations: false,
+    usePreallocated: false,
+  &#125;
+
+</pre>

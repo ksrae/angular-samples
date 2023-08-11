@@ -1,0 +1,9 @@
+<line-tooltip
+  [position]="position"
+  [lineColor]="'#000'"
+  [lineWidth] = "1"
+  [tooltip]="'this is a tooltip'"
+  (tooltipCloseEvent)="setClose()"
+  (pinEvent)="setPin($event)" *ngIf="isOpen$ | async">
+</line-tooltip>
+

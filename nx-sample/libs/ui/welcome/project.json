@@ -1,0 +1,17 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/ui/welcome/src",
+  "prefix": "",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui/welcome/**/*.ts",
+          "libs/ui/welcome/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

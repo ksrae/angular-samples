@@ -1,0 +1,12 @@
+<p>dom-to-point works!</p>
+
+<button (click)="createTooltip([500,700])">create tooltip</button>
+<button (click)="setMode('single')">Single</button>
+<button (click)="setMode('multi')">Multi</button>
+<button (click)="setMode('clear')">clear</button>
+
+<div class="area">
+  <div class="pointer depart"></div>
+  <ng-template #area></ng-template>
+</div>
+

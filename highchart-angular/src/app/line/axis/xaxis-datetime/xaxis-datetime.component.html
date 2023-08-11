@@ -1,0 +1,21 @@
+<div id="chart-line"></div>
+
+<pre>
+  일정하지 않은 datetime을 설정하는 경우:
+  1. xaxis의 type을 datetime으로 설정한다.
+  2. xaxis의 categories에 값을 정의하지 않는다. 여기에 정의하면 x축에 일정 간격으로 정의된 catogories값을 찍기 때문
+  3. 이차원 배열로 값을 설정한다.
+
+  결과:
+  빈 공간을 채운 상태로 값을 시간에 맞게 출력함.
+  connectNulls: true / false 를 무시함
+
+
+  일정한 datetime을 설정하는 경우:
+  1. pointStart 를 정의하고,
+  2. pointInterval 을 설정한다.
+
+  결과:
+  일정 시간 간격으로 값을 출력함.
+  값이 null인 경우 connectNulls: true / false 의 적용을 받음
+</pre>

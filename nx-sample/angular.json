@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "main-main-app": "apps/main/main-app",
+    "main-main-app-e2e": "apps/main/main-app-e2e",
+    "services-configuration": "libs/services/configuration",
+    "sub-sub-app": "apps/sub/sub-app",
+    "sub-sub-app-e2e": "apps/sub/sub-app-e2e",
+    "ui-welcome": "libs/ui/welcome"
+  }
+}

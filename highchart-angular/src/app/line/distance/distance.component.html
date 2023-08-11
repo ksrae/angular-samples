@@ -1,0 +1,22 @@
+<div id="chart-line"></div>
+
+<pre>
+  설정
+  allowPointSelect: true
+
+  이벤트
+  series: &#123;
+    point: &#123;
+      select: (p:any) => &#123;
+        // add
+      &#125;
+    &#125;
+  &#125;
+
+
+  조건
+  - getSelectedPoints()를 통해 클릭한 포인트를 가져옴.
+  - add Series를 통해 두 점을 입력
+  -- 1차원 배열로 구성하려면 작은 점의 index값에 도달할 때까지 null 값을 입력, x축 index값에 도달하면 해당 y값을 넣고, 큰 점의 index값에 도달할 때까지 다시 null. 다시 큰 점의 index값에 도달하면 해당 y값을 입력
+  -- 2차원 배열로 구성하려면 [[작은 점의 x, 작은 점의 y], [큰 점의 x, 큰 점의 y]]
+</pre>

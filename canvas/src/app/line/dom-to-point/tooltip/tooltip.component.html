@@ -1,0 +1,13 @@
+<div class="example-box pointer destination"
+  [ngStyle]="{'left': initTo[0] + 'px', 'top': initTo[1] + 'px'}"
+  cdkDrag (cdkDragEnded)="drop($event)" (cdkDragMoved)="dragging($event)"
+  point [position]="{from, to}" [lineColor]="'#000'" [lineWidth]="1">
+  <div class="header">
+    <div (click)="pin()">PIN {{isPin}}</div>
+    <div (click)="close()">x</div>
+  </div>
+
+  <div class="body">
+    {{tooltip}}
+  </div>
+</div>

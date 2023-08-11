@@ -2,8 +2,7 @@ import { Injectable } from "@angular/core";
 import { Dispatch } from "@ngxs-labs/dispatch-decorator";
 import { Select } from "@ngxs/store";
 import { Observable } from "rxjs";
-import { CountState } from "./count.state";
-import { IncrementAction, SetCountAction } from './count.action';
+import { CountState, IncrementAction, SetCountAction } from "./count.state";
 
 @Injectable({providedIn: 'root'})
 export class CountService {

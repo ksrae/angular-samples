@@ -1,0 +1,8 @@
+<p>translate-component works!</p>
+<p [innerHTML]="hello$ | async"></p>
+<p [innerHTML]="success$ | async"></p>
+
+<ng-container *ngFor="let item$ of result$">
+  <p [innerHTML]="item$ | async"></p>
+</ng-container>
+

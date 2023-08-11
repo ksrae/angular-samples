@@ -1,0 +1,15 @@
+<p>translate-html works!</p>
+<p [innerHTML]="'hello' | translate"></p>
+<p [innerHTML]="'success' | translate: {val: 'test' | translate }"></p>
+<p [innerHTML]="'fail' | translate: {val: 'test' | translate, action: 'save' | translate }"></p>
+
+<ng-container *ngFor="let item of list">
+  <p>{{
+    'result' | translate: {
+      val: item.val | translate,
+      saveload: item.saveload | translate,
+      action: item.action | translate
+    }
+  }}
+  </p>
+</ng-container>

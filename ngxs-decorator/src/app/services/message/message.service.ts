@@ -3,8 +3,7 @@ import { Dispatch } from "@ngxs-labs/dispatch-decorator";
 import { Select } from "@ngxs/store";
 import { ConnectWebSocket, SendWebSocketMessage } from "@ngxs/websocket-plugin";
 import { Observable } from "rxjs";
-import { Message } from "./message.action";
-import { MessagesState } from "./message.state";
+import { Message, MessagesState } from "./message.state";
 
 @Injectable({providedIn: 'root'})
 export class MessageService {

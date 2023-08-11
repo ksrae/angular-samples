@@ -1,0 +1,88 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/sub/sub-app/src",
+  "prefix": "",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/sub/sub-app",
+        "index": "apps/sub/sub-app/src/index.html",
+        "main": "apps/sub/sub-app/src/main.ts",
+        "polyfills": "apps/sub/sub-app/src/polyfills.ts",
+        "tsConfig": "apps/sub/sub-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/sub/sub-app/src/favicon.ico",
+          "apps/sub/sub-app/src/assets"
+        ],
+        "styles": ["apps/sub/sub-app/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/sub/sub-app/src/environments/environment.ts",
+              "with": "apps/sub/sub-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "sub-sub-app:build:production"
+        },
+        "development": {
+          "browserTarget": "sub-sub-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "sub-sub-app:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/sub/sub-app/**/*.ts",
+          "apps/sub/sub-app/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

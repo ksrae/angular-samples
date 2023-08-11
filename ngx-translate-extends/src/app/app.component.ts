@@ -21,8 +21,21 @@ export class AppComponent implements OnInit {
   }
 
   change() {
-    console.log(this.translateService.currentLang);
+    // console.log(this.translateService.currentLang);
 
-    this.translateService.use(this.translateService.currentLang === 'aaa' ? 'bbb': 'aaa');
+    // this.translateService.use(this.translateService.currentLang === 'aaa' ? 'bbb': 'aaa');
+
+    this.translateService.get('hellomain').subscribe((a: any) => console.log({a}))
+    this.translateService.getStreamOnTranslationChange('hellomain').subscribe((b: any) => console.log({b}))
+    this.translateService.use(this.translateService.currentLang === 'ko' ? 'en': 'ko');
+  }
+  set() {
+    this.translateService.set('hellomain', '카카카카<main>', 'en');
+    // this.translateService.setTranslation('ko', {
+    //   "hellomain": "카카카카 <main>",
+    //   "hellosub": "서서서서 <sub>"
+    // }, true);
+
+
   }
 }

@@ -1,0 +1,7 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/services/configuration/src",
+  "prefix": "nx-sample",
+  "targets": {},
+  "tags": []
+}

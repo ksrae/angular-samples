@@ -18,7 +18,8 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.resWkMsg$ = this.aSocketService.wws$;
+    this.aSocketService.connect();
+    this.resWkMsg$ = this.aSocketService.socketResponse$;
     // .pipe(
     //   // filter((response: NetworkResponse) => response.code === 0),
     //   map(response => response)
@@ -32,13 +33,29 @@ export class MainComponent implements OnInit {
   }
 
   getSocketState() {
-    this.aSocketService.getState();
+    // this.aSocketService.getState();
+    this.aSocketService.disconnect();
   }
 
   sendMessage() {
     this.aSocketService.send({
-      id: 1,
-      text: 'aaaaaaa'
+      // id: 1,
+      // text: 'aaaaaaa'
+
+
+
+        "eqpId":"SNPS_EQP01",
+        "modulePath":"MainChamber/SNPS-EQ1/SNPS-PM2",
+        "variableIdList":[
+           "42514",
+           "42515",
+           "42506"
+        ],
+        "timeOut":10
+
+
+
+
     })
   }
 }

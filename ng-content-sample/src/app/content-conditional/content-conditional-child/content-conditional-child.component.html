@@ -1,0 +1,5 @@
+<p>content-conditional-child works!</p>
+
+<div *ngIf="expanded$ | async">
+  <ng-container [ngTemplateOutlet]="content.templateRef"></ng-container>
+</div>

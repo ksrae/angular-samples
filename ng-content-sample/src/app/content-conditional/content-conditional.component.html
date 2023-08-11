@@ -1,0 +1,9 @@
+<p>content-conditional works!</p>
+
+<!-- directive를 통해서 ng-template을 전달 -->
+<!-- child에서는 ng-content에서 template을 받음 -->
+<content-conditional-child>
+  <ng-template contentConditional>
+    <h1>It depends on what you do with it.</h1>
+  </ng-template>
+</content-conditional-child>
