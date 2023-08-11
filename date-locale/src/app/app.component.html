@@ -1,20 +1,21 @@
 <!-- <div>{{ 1688033634000 | timezone: 'yyyy-MM-dd hh:mm:ss ZZ' }}</div>
 
-<div>{{ 1688033634000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss ZZ': 'ko-KR': 'Asia/Seoul'}}</div>
-<div>{{ 1702104869000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss ZZ': 'en-US': 'America/Los_Angeles'}}</div>
-<div>{{ 1688033634000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss ZZ': 'fr': 'America/New_York'}}</div> -->
+<div>{{ 1688033634000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss a': 'Asia/Seoul': true: 'ko-KR'}}</div>
+<div>{{ 1702104869000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss a': 'America/Los_Angeles': true: 'en-US'}}</div>
+<div>{{ 1688033634000 | timezoneLuxon: 'yyyy MMM dd hh:mm:ss a': 'America/New_York': true: 'fr'}}</div> -->
 
 <select [formControl]="timezoneControl">
-  <ng-container *ngFor="let item of timezone$ | async">
+  <ng-container *ngFor="let item of timezoneConfig$ | async">
     <option [value]="item.identifier">{{item.title}}</option>
   </ng-container>
 </select>
 
 <br/>
-<span>Time timezone {{isDSTOn ? 'support': 'no support'}} DST.</span>
+<span>Time timezone {{hasDST ? 'support': 'no support'}} DST.</span>
 <br/>
-<div>Adjust for daylight saving time automatically {{isDSTOn ? 'ON' : 'OFF'}}</div>
-<button *ngIf="isDSTOn" (click)="setDST()">
+<div>Adjust for daylight saving time automatically {{hasDST ? 'ON' : 'OFF'}}</div>
+<div *ngIf="isDSTOn">This timezone is on daylight saving time</div>
+<button *ngIf="hasDST" (click)="setDST()">
 <span>{{toggleDST ? 'OFF' : 'ON'}}</span>
 </button>
 
@@ -27,3 +28,4 @@
 <p>&nbsp;</p>
 
 <div>{{result}}</div>
+<!-- <div>{{result | timezoneLuxon: 'yyyy MMM dd hh:mm:ss a': timezoneControl.value: toggleDST}}</div> -->

@@ -7,12 +7,14 @@ export class TimezoneLuxonPipe implements PipeTransform {
     @Inject(LOCALE_ID) private locale: string
   ) {}
 
-  transform(timestamp: number, format?: string, locale?: string, timezone?: string): string {
+  transform(timestamp: number, format?: string, timezone?: string, automaticDST: boolean = false, locale?: string): string {
     locale = locale ?? this.locale;
     // console.log(DateTime.fromMillis(timestamp));
-    format = format ?? 'ccc';
+    format = format ?? 'yyyy MMM dd hh:mm:ss a';
+    let datetime = DateTime.fromMillis(timestamp);
+    datetime = !automaticDST && datetime.isInDST ? datetime.minus({hour: 1}) : datetime;
 
-    return DateTime.fromMillis(timestamp)
+    return datetime
     .setLocale(locale)
     .toLocal()
     .setZone(timezone, {keepLocalTime: false})

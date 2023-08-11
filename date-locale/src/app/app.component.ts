@@ -10,10 +10,11 @@ import { DateTime } from 'luxon';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  timezone$: any;
+  timezoneConfig$: any;
   timezoneControl = new FormControl();
   timezone!: any;
   isDSTOn!: boolean;
+  hasDST!: boolean;
   selectedTimezone: any;
   aaa: any;
 
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    this.timezone$ = this.configService.config;
+    this.timezoneConfig$ = this.configService.config;
     this.timezoneControl.setValue(DateTime.local().zoneName);
 
     this.today = DateTime.now().toFormat('yyyy MMM dd hh:mm:ss a');
@@ -40,25 +41,34 @@ export class AppComponent implements OnInit {
   }
 
   setTimezone(value: any) {
-    this.timezone = DateTime.now()
-    //.fromMillis(this.today)
-    // .setLocale(value.identifier)
-    // .toLocal()
-    .setZone(value, {keepLocalTime: false});
-    this.isDSTOn = this.timezone.isInDST ? true : false;
-    this.toggleDST = this.isDSTOn;
+    this.timezoneConfig$.pipe(
+      first(),
+      tap((config: any[]) => {
+        this.timezone = DateTime.now()
+        //.fromMillis(this.today)
+        // .setLocale(value.identifier)
+        // .toLocal()
+        .setZone(value, {keepLocalTime: false});
+        this.isDSTOn = this.timezone.isInDST;
 
-    this.aaa = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
-    this.result = this.aaa;
+        const exist = config.find(c => c.identifier === value);
+        this.hasDST = exist ? exist.dst : false;
+        this.toggleDST = this.hasDST;
 
-    console.log(this.timezone);
+        this.aaa = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
+        this.result = this.aaa;
 
-    // this.withDST = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
-    // if(this.timezone.isInDST) {
-    //   this.noDST = this.timezone.minus({hours: 1}).toFormat('yyyy MMM dd hh:mm:ss a');
-    // } else {
-    //   this.noDST = this.withDST;
-    // }
+        console.log(this.timezone);
+
+        // this.withDST = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
+        // if(this.timezone.isInDST) {
+        //   this.noDST = this.timezone.minus({hours: 1}).toFormat('yyyy MMM dd hh:mm:ss a');
+        // } else {
+        //   this.noDST = this.withDST;
+        // }
+      })
+    ).subscribe();
+
 
   }
   setDST() {
@@ -66,7 +76,7 @@ export class AppComponent implements OnInit {
     // this.withDST = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
     // this.noDST = this.timezone.minus({hours: 1}).toFormat('yyyy MMM dd hh:mm:ss a');
 
-    const tz = this.toggleDST ? this.timezone: this.timezone.minus({hours: 1});
+    const tz = !this.toggleDST && this.isDSTOn ? this.timezone.minus({hours: 1}): this.timezone;
     this.result = tz.toFormat('yyyy MMM dd hh:mm:ss a');
 
   }
