@@ -12,41 +12,65 @@ import { DateTime } from 'luxon';
 export class AppComponent implements OnInit {
   timezone$: any;
   timezoneControl = new FormControl();
+  timezone!: any;
+  isDSTOn!: boolean;
+  selectedTimezone: any;
   aaa: any;
+
+  result: any;
+  toggleDST = false;
+
   today: any;
+  currentZoneName!: string | null;
 
   constructor(
     private configService: ConfigService
     ) {}
 
   ngOnInit(): void {
-    this.today = DateTime.now().toFormat('yyyy MMM dd hh:mm:ss ZZ');
-
     this.timezone$ = this.configService.config;
-    this.timezoneControl.valueChanges.subscribe(value => {
+    this.currentZoneName = DateTime.local().zoneName;
+    this.timezoneControl.setValue(this.currentZoneName);
 
-      this.timezone$.pipe(
-        first(),
-        map((timezone: any[]) => {
+    this.today = DateTime.now().toFormat('yyyy MMM dd hh:mm:ss a');
+    this.setTimezone(this.timezoneControl.value);
 
-          return timezone.find((tz: any) => tz.id === value);
-        }),
-        tap((timezone: any) => {
-
-          this.aaa = DateTime.now()
-          //.fromMillis(this.today)
-          // .setLocale(value.identifier)
-          // .toLocal()
-          .setZone(timezone.identifier, {keepLocalTime: false})
-          .toFormat('yyyy MMM dd hh:mm:ss a');
-
-          // this.bbb = DateTime.fromMillis(this.bbb)
-          // // .setLocale(value.identifier)
-          // // .toLocal()
-          // .setZone(timezone.identifier, {keepLocalTime: false})
-          // .toFormat('yyyy MMM dd hh:mm:ss ZZ');
-        })
-      ).subscribe();
+    this.timezoneControl.valueChanges.subscribe((value: any) => {
+      this.selectedTimezone = value;
+      this.setTimezone(value);
     });
   }
+
+  setTimezone(value: any) {
+    this.timezone = DateTime.now()
+    //.fromMillis(this.today)
+    // .setLocale(value.identifier)
+    // .toLocal()
+    .setZone(value, {keepLocalTime: false});
+    this.isDSTOn = this.timezone.isInDST ? true : false;
+    this.toggleDST = this.isDSTOn;
+
+    this.aaa = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
+    this.result = this.aaa;
+
+    console.log(this.timezone);
+
+    // this.withDST = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
+    // if(this.timezone.isInDST) {
+    //   this.noDST = this.timezone.minus({hours: 1}).toFormat('yyyy MMM dd hh:mm:ss a');
+    // } else {
+    //   this.noDST = this.withDST;
+    // }
+
+  }
+  setDST() {
+    this.toggleDST = !this.toggleDST;
+    // this.withDST = this.timezone.toFormat('yyyy MMM dd hh:mm:ss a');
+    // this.noDST = this.timezone.minus({hours: 1}).toFormat('yyyy MMM dd hh:mm:ss a');
+
+    const tz = this.toggleDST ? this.timezone: this.timezone.minus({hours: 1});
+    this.result = tz.toFormat('yyyy MMM dd hh:mm:ss a');
+
+  }
 }
+// 서버에 저장할 때는 title, isDSTOn
