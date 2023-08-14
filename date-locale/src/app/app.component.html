@@ -11,7 +11,7 @@
 </select>
 
 <br/>
-<span>Time timezone {{hasDST ? 'support': 'no support'}} DST.</span>
+<span>Time timezone({{timezoneControl.value}}) {{hasDST ? 'support': 'no support'}} DST.</span>
 <br/>
 <div>Adjust for daylight saving time automatically {{hasDST ? 'ON' : 'OFF'}}</div>
 <div *ngIf="isDSTOn">This timezone is on daylight saving time</div>
