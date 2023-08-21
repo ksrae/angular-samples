@@ -27,6 +27,7 @@ import { AxisGroupComponent } from './axis/axis-group/axis-group.component';
 import { ScrollComponent } from './scroll/scroll.component';
 import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
 import { ContextMenuComponent } from './contextmenu/contextmenu.component';
+import { BoostComponent } from './boost/boost.component';
 
 const routes: Routes = [
   { path: '', component: LineComponent, children: [
@@ -49,13 +50,14 @@ const routes: Routes = [
     { path: 'axishift2', component: AxisShift2Component},
     { path: 'plotlines', component: PlotLinesComponent},
     { path: 'distance', component: LineDistanceComponent},
-    { path: 'boost', component: GpuBoostComponent},
+    { path: 'gpuboost', component: GpuBoostComponent},
     { path: 'dragpoints', component: DragPointComponent},
     { path: 'dragpoints2', component: DragPointMultiDimensionComponent},
     { path: 'multicolor', component: SeriesMultiColorComponent},
     { path: 'overlay', component: OverlayblankComponent},
     { path: 'scroll', component: ScrollComponent},
     { path: 'contextmenu', component: ContextMenuComponent},
+    { path: 'boost', component: BoostComponent},
   ]},
 
 ];

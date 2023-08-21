@@ -26,9 +26,9 @@ export class GpuBoostComponent implements OnInit {
       },
 
       boost: {
-        allowForce: false,
-        useGPUTranslations: false,
-        usePreallocated: false,
+        allowForce: true,
+        useGPUTranslations: true,
+        usePreallocated: true,
       },
 
       series: [{

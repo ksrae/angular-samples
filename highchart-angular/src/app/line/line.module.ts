@@ -29,6 +29,7 @@ import { AxisGroupComponent } from './axis/axis-group/axis-group.component';
 import { ScrollComponent } from './scroll/scroll.component';
 import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
 import { ContextMenuComponent } from './contextmenu/contextmenu.component';
+import { BoostComponent } from './boost/boost.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { ContextMenuComponent } from './contextmenu/contextmenu.component';
     AxisShift2Component,
     OverlayblankComponent,
     ScrollComponent,
-    ContextMenuComponent
+    ContextMenuComponent,
+    BoostComponent
 
   ],
   imports: [
