@@ -32,6 +32,11 @@ export class BoostComponent implements OnInit {
           click: (e: any) => this.chartClick(e),
           afterPrint: (e: any) => this.chartAfterprint(e),
           redraw: (e: any) => this.chartRedraw(e)
+        },
+        boost: {
+          allowForce: true,
+          useGPUTranslations: true,
+          usePreallocated: true
         }
       },
       boost: {
@@ -40,15 +45,27 @@ export class BoostComponent implements OnInit {
         usePreallocated: false,
       },
       series: [{
-        data: this.getData(100000)
+        data: this.getData(1000)
       }],
       plotOptions: {
         series: {
-          hide: (e: any) => this.seriesHide(e),
-          mouseOver: (e: any) => this.seriesMouseover(e),
-          show: (e: any) => this.seriesShow(e),
-          afterAnimate: (e: any) => this.seriesAfteranimate(e),
-        }
+          events: {
+            hide: (e: any) => this.seriesHide(e),
+            mouseOver: (e: any) => this.seriesMouseover(e),
+            show: (e: any) => this.seriesShow(e),
+            afterAnimate: (e: any) => this.seriesAfteranimate(e),
+          },
+          point: {
+            events: {
+              click: (e: any) => this.pointClick(e),
+              drop: (e: any) => this.pointDrop(e),
+              mouseOut: (e: any) => this.pointMouseout(e),
+              mouseOver: (e: any) => this.pointMouseover(e),
+              select: (e: any) => this.pointSelect(e)
+            }
+          }
+        },
+
       }
     } as any)
 
@@ -88,6 +105,22 @@ export class BoostComponent implements OnInit {
   seriesAfteranimate(e: any) {
     console.log('seriesAftermate', e);
   }
+  pointClick(e: any) {
+    console.log('pointClick', e);
+  }
+  pointDrop(e: any) {
+    console.log('pointDrop', e);
+  }
+  pointMouseout(e: any) {
+    console.log('pointMouseout', e);
+  }
+  pointMouseover(e: any) {
+    console.log('pointMouseover', e);
+  }
+  pointSelect(e: any) {
+    console.log('pointSelect', e);
+  }
+
   private getData(n: number): number[][] {
     let arr = [];
 
