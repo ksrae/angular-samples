@@ -33,22 +33,20 @@ export class BoostComponent implements OnInit {
           afterPrint: (e: any) => this.chartAfterprint(e),
           redraw: (e: any) => this.chartRedraw(e)
         },
-        boost: {
-          allowForce: true,
-          useGPUTranslations: true,
-          usePreallocated: true
-        }
       },
       boost: {
-        allowForce: false,
-        useGPUTranslations: false,
-        usePreallocated: false,
+        //allowForce: true,
+        useGPUTranslations: true,
+        //usePreallocated: true,
+        seriesThreshold: 1
       },
-      series: [{
-        data: this.getData(1000)
-      }],
+      series: [
+        {data: this.getData(100000), boostThreshole: 1},
+        {data: this.getData(100), boostThreshold: 0},
+      ],
       plotOptions: {
         series: {
+
           events: {
             hide: (e: any) => this.seriesHide(e),
             mouseOver: (e: any) => this.seriesMouseover(e),
@@ -97,7 +95,7 @@ export class BoostComponent implements OnInit {
     console.log('seriesHide', e);
   }
   seriesMouseover(e: any) {
-    console.log('seriesMouseover', e);
+    //console.log('seriesMouseover', e);
   }
   seriesShow(e: any) {
     console.log('seriesShow', e);
@@ -112,10 +110,10 @@ export class BoostComponent implements OnInit {
     console.log('pointDrop', e);
   }
   pointMouseout(e: any) {
-    console.log('pointMouseout', e);
+    //console.log('pointMouseout', e);
   }
   pointMouseover(e: any) {
-    console.log('pointMouseover', e);
+    //console.log('pointMouseover', e);
   }
   pointSelect(e: any) {
     console.log('pointSelect', e);

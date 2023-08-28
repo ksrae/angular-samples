@@ -28,6 +28,7 @@ import { ScrollComponent } from './scroll/scroll.component';
 import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
 import { ContextMenuComponent } from './contextmenu/contextmenu.component';
 import { BoostComponent } from './boost/boost.component';
+import { ZoomBoostComponent } from './zoom-boost/zoom-boost.component';
 
 const routes: Routes = [
   { path: '', component: LineComponent, children: [
@@ -58,6 +59,7 @@ const routes: Routes = [
     { path: 'scroll', component: ScrollComponent},
     { path: 'contextmenu', component: ContextMenuComponent},
     { path: 'boost', component: BoostComponent},
+    { path: 'zoom-boost', component: ZoomBoostComponent},
   ]},
 
 ];

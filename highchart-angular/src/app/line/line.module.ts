@@ -30,6 +30,7 @@ import { ScrollComponent } from './scroll/scroll.component';
 import { XaxisColorlComponent } from './axis/xaxis-color/xaxis-color.component';
 import { ContextMenuComponent } from './contextmenu/contextmenu.component';
 import { BoostComponent } from './boost/boost.component';
+import { ZoomBoostComponent } from './zoom-boost/zoom-boost.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { BoostComponent } from './boost/boost.component';
     OverlayblankComponent,
     ScrollComponent,
     ContextMenuComponent,
-    BoostComponent
+    BoostComponent,
+    ZoomBoostComponent,
 
   ],
   imports: [
