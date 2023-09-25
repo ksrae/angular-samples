@@ -39,7 +39,7 @@ export class ZoomBoostComponent implements OnInit {
     },
     series: [
       {data: this.getData(100000), boostThreshold: this.setBoostThreshold(100000)},
-      {data: this.getData(1000), boostThreshold: this.setBoostThreshold(1000)},
+     // {data: this.getData(1000), boostThreshold: this.setBoostThreshold(1000)},
     ],
     plotOptions: {
       series: {
@@ -71,6 +71,26 @@ export class ZoomBoostComponent implements OnInit {
   private createChartLine(options: any): void {
     this.chart = Highcharts.chart(options);
     const boosted = options.series?.filter((series: any) => series.boostThreshold);
+
+    for(const series of this.chart?.series) {
+
+      for(const point of series.points) {
+        if(!point?.graphic) {
+          point.graphic = point.series.chart.renderer.path(['M', 0, 0, 'L', 0, 0]).attr({
+            align: 'right',
+            zIndex: 99,
+            fill: 'rgba(0, 0, 0, 0.75)',
+            padding: 8
+          }).add();
+        }
+
+        point.graphic.on('contextmenu', (f: any) => {
+          f.preventDefault();
+          console.log('contextmenu', f);
+        })
+      }
+    }
+
     this.chartBoosted$.next(!boosted.length ? 'Normal' : boosted.length === options.series.length ? 'Boost': 'Mix');
     console.timeEnd('line');
     console.log(this.chart);
@@ -83,6 +103,7 @@ export class ZoomBoostComponent implements OnInit {
     let data: any[] = [];
 
     for(const series of e.target.series) {
+
       const list = [];
       if(!e.x || !e.y) {
         return true;
@@ -90,8 +111,8 @@ export class ZoomBoostComponent implements OnInit {
       if(series.visible === false) {
         continue;
       } else {
-        const pointX = series.processedXData;
-        const pointY = series.processedYData;
+        const pointX = series.xData;
+        const pointY = series.yData;
         for(let i=0; i< pointX.length; i++) {
           if((pointX[i] * 1.0) >= (e.xAxis[0].min * 1.0) && (pointX[i] * 1.0) <= (e.xAxis[0].max * 1.0) &&
              (pointY[i] * 1.0) >= (e.yAxis[0].min * 1.0) && (pointY[i] * 1.0) <= (e.yAxis[0].max* 1.0)) {
@@ -115,6 +136,7 @@ export class ZoomBoostComponent implements OnInit {
         };
       })
     };
+
 
 
     const options = {
