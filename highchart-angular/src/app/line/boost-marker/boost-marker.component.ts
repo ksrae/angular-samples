@@ -82,18 +82,9 @@ export class BoostMarkerComponent implements OnInit {
   }
   chartLoad(e: any) {
     console.log('chartLoad', e);
-    const point = e.target.series[0].points[10];
-    const squareSize = 10;
-    const x = e.target.plotLeft + point.plotX - squareSize / 2;
-    const y = e.target.plotTop + point.plotY - squareSize / 2;
-    const square = e.target.renderer.rect(x,y, squareSize, squareSize)
-      .attr({
-        fill: 'red',
-        stroke: 'black',
-        'stroke-width': 2,
-        cursor: 'pointer', // Set cursor style to indicate clickability
-
-      }).add();
+    this.drawingSquare(e, 5);
+    this.drawingSquare(e, 10);
+    this.drawingSquare(e, 15);
       // .on('click', (e: any) => {
       //   console.log('click', e);
       // }).add();
@@ -170,4 +161,17 @@ export class BoostMarkerComponent implements OnInit {
     return arr;
   }
 
+  private drawingSquare(e: any, pointIndex: number, squareSize: number = 10, strokeWidth: number = 2, fill: string = 'red', strokeColor: string = 'black') {
+    const point = e.target.series[0].points[pointIndex];
+    const x = e.target.plotLeft + point.plotX - squareSize / 2;
+    const y = e.target.plotTop + point.plotY - squareSize / 2;
+    const square = e.target.renderer.rect(x,y, squareSize, squareSize)
+      .attr({
+        fill,
+        stroke: strokeColor,
+        'stroke-width': strokeWidth,
+        cursor: 'pointer', // Set cursor style to indicate clickability
+
+      }).add();
+  }
 }
