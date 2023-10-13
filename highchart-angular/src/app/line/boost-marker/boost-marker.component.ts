@@ -42,13 +42,17 @@ export class BoostMarkerComponent implements OnInit {
         //seriesThreshold: 1
       },
       series: [
-        {data: this.getData(100), boostThreshole: 1},
-        {data: this.getData(100), boostThreshold: 1},
+        {
+          data: this.getData(20),
+          boostThreshold: 1,
+          marker: { enabled: false }
+        },
+        {data: this.getData(20), boostThreshold: 1},
       ],
       plotOptions: {
         series: {
           marker: {enabled: false},
-          anumation: false,
+          animation: false,
           events: {
             hide: (e: any) => this.seriesHide(e),
             mouseOver: (e: any) => this.seriesMouseover(e),
@@ -69,14 +73,35 @@ export class BoostMarkerComponent implements OnInit {
       }
     } as any);
 
-    this.chart.xAxis[0].setExtremes(0, 90);
-    setTimeout(() => {
-      this.chart.xAxis[0].setExtremes(null, null);
-    }, 0);
+    // this.chart.xAxis[0].setExtremes(0, 90);
+    // setTimeout(() => {
+    //   this.chart.xAxis[0].setExtremes(null, null);
+    // }, 0);
     console.timeEnd('line');
+
   }
   chartLoad(e: any) {
     console.log('chartLoad', e);
+    const point = e.target.series[0].points[10];
+    const squareSize = 10;
+    const x = e.target.plotLeft + point.plotX - squareSize / 2;
+    const y = e.target.plotTop + point.plotY - squareSize / 2;
+    const square = e.target.renderer.rect(x,y, squareSize, squareSize)
+      .attr({
+        fill: 'red',
+        stroke: 'black',
+        'stroke-width': 2,
+        cursor: 'pointer', // Set cursor style to indicate clickability
+
+      }).add();
+      // .on('click', (e: any) => {
+      //   console.log('click', e);
+      // }).add();
+
+    // point.graphic.on('click', function() {
+    //   // Handle the point click event
+    //   console.log('Point clicked!');
+    // });
   }
   chartSelection(e: any) {
     console.log('chartSelection', e);
@@ -130,14 +155,15 @@ export class BoostMarkerComponent implements OnInit {
 
     for (let i = 0; i < n; i++) {
       const y = 2 * Math.sin(i / 100) + Math.random() * 100;
-        arr.push({
-          x:i,
-          y,
-          marker: {
-            enabled: y > 80 ? true : false,
-            radius: 10
-          }
-        });
+        // arr.push({
+        //   x:i,
+        //   y,
+        //   marker: {
+        //     enabled: y > 80 ? true : false,
+        //     radius: 10
+        //   }
+        // });
+        arr.push([i, y]);
     }
 
     console.log({arr})
