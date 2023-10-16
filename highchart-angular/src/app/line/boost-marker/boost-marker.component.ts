@@ -13,6 +13,8 @@ HC_boost(Highcharts);
 export class BoostMarkerComponent implements OnInit {
   chart: any;
   customMarkers: any[] = [];
+  customMarkerRefresh = false;
+
 
   ngOnInit(): void {
     console.time('line');
@@ -26,6 +28,13 @@ export class BoostMarkerComponent implements OnInit {
         type: 'line',
         zoomType: 'xy',
         animation: false,
+        // resetZoomButton: {
+        //   theme: {
+        //     style: {
+        //       zIndex: 9999,
+        //     },
+        //   },
+        // },
         events: {
           load: (e: any) => this.chartLoad(e),
           addSeries: (e: any) => this.chartAddSeries(e),
@@ -61,7 +70,7 @@ export class BoostMarkerComponent implements OnInit {
           boostThreshold: 1,
           marker: { enabled: false }
         },
-        {data: this.getData(100), boostThreshold: 1},
+        // {data: this.getData(100), boostThreshold: 1},
       ],
       plotOptions: {
         series: {
@@ -97,32 +106,30 @@ export class BoostMarkerComponent implements OnInit {
   chartLoad(e: any) {
     console.log('chartLoad', e);
 
-      // .on('click', (e: any) => {
-      //   console.log('click', e);
-      // }).add();
-
-    // point.graphic.on('click', function() {
-    //   // Handle the point click event
-    //   console.log('Point clicked!');
-    // });
+    const chart = this.chart ?? e.target;
+    this.drawingCustomMarker(chart, 'square', chart.series[0], 70);
   }
   chartSelection(e: any) {
     console.log('chartSelection', e);
+    this.customMarkerRefresh = true;
+
   }
   chartAddSeries(e: any) {
     console.log('chartAddSeries', e);
   }
   chartRender(e: any) {
+    console.log('chartRender', e);
 
-    const chart = this.chart ?? e.target;
-    console.log('chartRender', chart);
+    if(this.customMarkerRefresh) {
+      this.customMarkerRefresh = false;
+      const chart = this.chart ?? e.target;
+      this.drawingCustomMarker(chart, 'square', chart.series[0], 70);
+    }
 
-    this.drawingSquare(chart, chart.series[0], 70);
+    // this.chart?.resetZoomButton?.toFront();
   }
   chartClick(e: any) {
     console.log('chartClick', e);
-    e.preventDefault();
-    return false;
   }
   chartAfterprint(e: any) {
     console.log('chartAfterprint', e);
@@ -132,12 +139,15 @@ export class BoostMarkerComponent implements OnInit {
   }
   seriesHide(e: any) {
     console.log('seriesHide', e);
+    this.customMarkerRefresh = e.target?.visible;
+    this.clearAllMarkers();
   }
   seriesMouseover(e: any) {
     // console.log('seriesMouseover', e);
   }
   seriesShow(e: any) {
     console.log('seriesShow', e);
+    this.customMarkerRefresh = e.target?.visible;
   }
   seriesAfteranimate(e: any) {
     console.log('seriesAftermate', e);
@@ -177,89 +187,87 @@ export class BoostMarkerComponent implements OnInit {
     console.log({arr})
     return arr;
   }
-
-  private drawingSquare(
+  private drawingCustomMarker(
     chart: any,
+    type: 'circle' | 'square',
     series: any,
     warningValue: number,
-    squareSize: number = 10,
-    strokeWidth: number = 2,
+    size: number = 10,
     fill: string = 'red',
-    strokeColor: string = 'black') {
+    strokeWidth: number = 1,
+    strokeColor: string = 'black'
+  ) {
+
     this.clearAllMarkers();
 
-    // 우리는 point 값이 필요한대 series의 point에서 x값만 다루고 y값은 다루지 않기 때문에 아래와 같이 처리해야 함.
-    // ydata에서 필터 조건에 따라 맞는 포인트들의 index를 추려내서 series의 xData의 해당 index의 값을 가져온다.
-    const filteredData: any[] = series.yData.map((item: any, index: number) => {
-      if(item <= chart.yAxis[0].max && item >= chart.yAxis[0].min && item > warningValue) {
-        return {xData: series.xData[index], yData: item};
-      }
-      return undefined;
-    }).filter((item: any) => item !== undefined);
+    if(series?.visible) {
+      // 우리는 point 값이 필요한대 series의 point에서 x값만 다루고 y값은 다루지 않기 때문에 아래와 같이 처리해야 함.
+      // ydata에서 필터 조건에 따라 맞는 포인트들의 index를 추려내서 series의 xData의 해당 index의 값을 가져온다.
+      const filteredData: any[] = series.yData.map((item: any, index: number) => {
+        if(item <= chart.yAxis[0].max && item >= chart.yAxis[0].min && item > warningValue) {
+          return {xData: series.xData[index], yData: item};
+        }
+        return undefined;
+      }).filter((item: any) => item !== undefined);
 
-    console.log({filteredData});
+      console.log({filteredData});
 
-    // series의 points에서 x값과 추출한 xData이 일치하는 point만 필터링 한다.
-    const points = series.points.filter((point: any) => {
-      return filteredData.find((item: any) => {
-        return item.xData === point.x ? true : false;
+      // series의 points에서 x값과 추출한 xData이 일치하는 point만 필터링 한다.
+      const points = series.points.filter((point: any) => {
+        return filteredData.find((item: any) => {
+          return item.xData === point.x ? true : false;
+        });
       });
-    });
 
-    console.log({points});
+      console.log({points});
 
-    // 추출한 point들에 marker를 그려낸다.
-    for(let i=0; i<points.length; i++) {
-      const point = points[i];
+      // 추출한 point들에 marker를 그려낸다.
+      for(let i=0; i<points.length; i++) {
+        const point = points[i];
 
-      const x = chart.plotLeft + point.plotX - squareSize / 2;
-      const y = chart.plotTop + point.plotY - squareSize / 2;
+        const x = chart.plotLeft + point.plotX - size / 2;
+        const y = chart.plotTop + point.plotY - size / 2;
 
-      // console.log({point}, {x}, {y});
-      const square = chart.renderer.rect(x,y, squareSize, squareSize)
-      .attr({
-        fill,
-        stroke: strokeColor,
-        'stroke-width': strokeWidth,
-        cursor: 'pointer', // Set cursor style to indicate clickability
-      }).on('click', (e: any) => {
-        e.stopImmediatePropagation();
+        // console.log({point}, {x}, {y});
+        const renderer = type === 'circle' ? chart.renderer.circle(x + 2, y, size) : chart.renderer.rect(x, y, size, size);
 
-        console.log('click point', point, filteredData[i]);
+        const marker = renderer.attr({
+          fill,
+          stroke: strokeColor,
+          'stroke-width': strokeWidth,
+          cursor: 'pointer', // Set cursor style to indicate clickability
+          'pointer-events': 'visible', // 이걸 해줘야 이벤트가 먹는다. 이것만 하면 안되고 zIndex를 조절해서 앞으로 나오게 해야한다.
+          zIndex: 5,
+        }).on('click', (e: any) => {
+          e.stopPropagation();
 
-      }).add().toFront();
+          console.log('click point', point, filteredData[i]);
 
-
-      // square.css({
-      //   cursor: 'pointer',
-      //   pointerEvents: 'auto'
-      // });
-      // square.toFront();
-
-      this.customMarkers.push(square);
-
-      // console.log(this.customMarkers);
+        }).add(); //.toFront();
+        // toFront() 함수를 사용하면 zoom 한 뒤에 tooltip보다 renderer가 위로 올라오는 문제가 발생한다.
+        // resetZoomButton도 rednerer 뒤에 가려지는데 this.chart?.resetZoomButton?.toFront(); 이걸 쓰면 해결되긴 한다.
 
 
+        this.customMarkers.push(marker);
 
-      // for(const point of series.points) {
-      //   this.chart?.tooltip.refresh(point);
-      // }
-
-      // 처리와 미처리
-      // 처리
-      // 1. 원하는 포인트만 marker를 추가할 수 있다.
-      // 2. zoom 에 대응할 수 있다.
-      // 3. click도 가능하다.
-      // 미처리
-      // 1. zoom 되면 tooltip보다 renderer가 상위로 올라온다. reset 버튼로 하위로 내려간다.
-      // 이는 toFront() 때문에 발생하는데 toFront()를 빼면 click 이벤트가 동작하지 않는다.
+        // 처리
+        // 1. 원하는 포인트만 marker를 추가할 수 있다.
+        // 2. zoom 에 대응할 수 있다.
+        // 3. click도 가능하다.
+        // 4. tooltip과 resetZoomButton 보다 아래로 내려가게 하면서도 click 이벤트를 유지하려면 'pointer-events': 'visible'을 설정하고 zIndex를 조절한다.
+      }
     }
+
   }
 
   private clearAllMarkers() {
     if(this.customMarkers.length) {
-      this.customMarkers.forEach(marker => marker.destroy());
+
+      for(const marker of this.customMarkers) {
+        if(marker?.element) {
+          marker.destroy();
+        }
+      }
     }
   }
 }

@@ -1,17 +1,31 @@
 <div id="chart-line"></div>
 
 <pre>
-Boost
-1. import
+원하는 point에만 marker 그리기 (boost에서도 동작해야 한다)
 
-import HighchartBoost from 'highcharts/modules/boost';
-HighchartsBoost(Highcharts);
+실패 사례
+1. 기본 제공되는 marker는 모든 point에 표시가 된다.
+1-1. 조건을 통해 특정 point에 표시할 수 있으나 boost 모드일 때 표시되지 않는다
 
-2. series boost
-series: [
-  &#123;
-    boostThreshold: 1 // 1: force on, 0: force off, other numbers means domain.
-  &#125;
-]
+2. renderer를 사용한다.
+2-1. 기본 renderer를 활용하면 그릴 수는 있으나 click event가 chart click event에 먹힘
+2-2. click event를 해결하기 위해 toFront() 함수를 추가하면 zoom한 뒤에 tooltip과 reset zoom button이 renderer에 가려지는 현상이 발생한다.
+2-2-1. reset zoom button 은 this.chart?.resetZoomButton?.toFront(); 이걸 쓰면 해결되긴 한다.
+2-2-2. 이 방법으로는 tooltip을 위로 올라오게 할 방법이 없다.
+
+해결 방법
+1. renderer를 사용한다.
+1-1. renderer의 attr에 'pointer-events': 'visible', 를 추가한다
+1-2. zIndex로 조절해주어 최상단으로 renderer가 올라오게 한다
+1-3. renderer를 배열로 저장해두었다가 chart render 타이밍에 다 지우고 다시 그린다
+
+2. 최적화를 위해 renderer를 그리는 타이밍을 정의한다
+2-1. 무조건 chartRender에서 하면 간단하지만 모든 순간에 실행되므로 최적화에 좋지 않다. 따라서 필요한 조건에서만 그려야 한다
+
+2-2. renderer를 다시 그려야 하는 조건
+2-2-1. chartLoad: 차트가 최초 그려질 때,
+2-2-2. chartSelect: zoom 했을 때, 이 타이밍에 그리면 올바르게 표시되지 않으므로 chartRender 에 조건을 넘겨서 그린다
+2-2-3. seriesShow: series가 visible; true 라면, 이 타이밍에 그리면 올바르게 표시되지 않으므로 chartRender 에 조건을 넘겨서 그린다
+2-2-4. seriesHide: seires가 visible: false라면, 이 타이밍에 모든 marker를 clear하고, chartRender에 조건을 넘겨서 새로 그리지 않는다
 
 </pre>
