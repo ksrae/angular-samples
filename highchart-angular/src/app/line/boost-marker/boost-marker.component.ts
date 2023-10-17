@@ -14,7 +14,8 @@ export class BoostMarkerComponent implements OnInit {
   chart: any;
   customMarkers: any[] = [];
   customMarkerRefresh = false;
-
+  selectedPoints: number[][] = [];
+  isZoom = true;
 
   ngOnInit(): void {
     console.time('line');
@@ -113,6 +114,37 @@ export class BoostMarkerComponent implements OnInit {
     console.log('chartSelection', e);
     this.customMarkerRefresh = true;
 
+    if(e?.x && e?.y) {
+      if(!e?.originalEvent.ctrlKey || !e?.originalEvent.metaKey) {
+        this.selectedPoints = [];
+        this.resetMarkersColor();
+      }
+
+      // customMarker에도 point와 동일한 drag ui 효과를 주기 위한 코드.
+      if(this.customMarkers?.length) {
+        for(const marker of this.customMarkers) {
+          if(marker?.element) {
+            const x = Number(marker.element.attributes.pointX.nodeValue);
+            const y = Number(marker.element.attributes.pointY.nodeValue);
+
+            if(x >= e.xAxis[0].min && x <= e.xAxis[0].max &&
+               y >= e.yAxis[0].min && y <= e.yAxis[0].max) {
+                const exist = this.existSelectedPoints(x,y);
+
+                if(exist) {
+                  this.addSelectedPoint(x,y);
+                } else {
+                  this.filterSelectedPoint(x,y);
+                }
+                marker.attr({
+                  fill: !exist ? marker.element.attributes.selectColor.nodeValue : marker.element.attributes.originColor.nodeValue
+                });
+            }
+          }
+        }
+      }
+    }
+    return this.isZoom;
   }
   chartAddSeries(e: any) {
     console.log('chartAddSeries', e);
@@ -184,7 +216,6 @@ export class BoostMarkerComponent implements OnInit {
         arr.push([i, y]);
     }
 
-    console.log({arr})
     return arr;
   }
   private drawingCustomMarker(
@@ -194,8 +225,9 @@ export class BoostMarkerComponent implements OnInit {
     warningValue: number,
     size: number = 10,
     fill: string = 'red',
+    selectColor: string = 'grey',
     strokeWidth: number = 1,
-    strokeColor: string = 'black'
+    strokeColor: string = 'black',
   ) {
 
     this.clearAllMarkers();
@@ -205,7 +237,7 @@ export class BoostMarkerComponent implements OnInit {
       // ydata에서 필터 조건에 따라 맞는 포인트들의 index를 추려내서 series의 xData의 해당 index의 값을 가져온다.
       const filteredData: any[] = series.yData.map((item: any, index: number) => {
         if(item <= chart.yAxis[0].max && item >= chart.yAxis[0].min && item > warningValue) {
-          return {xData: series.xData[index], yData: item};
+          return {x: series.xData[index], y: item};
         }
         return undefined;
       }).filter((item: any) => item !== undefined);
@@ -213,17 +245,16 @@ export class BoostMarkerComponent implements OnInit {
       console.log({filteredData});
 
       // series의 points에서 x값과 추출한 xData이 일치하는 point만 필터링 한다.
-      const points = series.points.filter((point: any) => {
+      const filteredPoints = series.points.filter((point: any) => {
         return filteredData.find((item: any) => {
-          return item.xData === point.x ? true : false;
+          return item.x === point.x ? true : false;
         });
       });
 
-      console.log({points});
-
       // 추출한 point들에 marker를 그려낸다.
-      for(let i=0; i<points.length; i++) {
-        const point = points[i];
+      for(let i=0; i < filteredPoints.length; i++) {
+        const point = filteredPoints[i];
+        console.log({point});
 
         const x = chart.plotLeft + point.plotX - size / 2;
         const y = chart.plotTop + point.plotY - size / 2;
@@ -233,15 +264,28 @@ export class BoostMarkerComponent implements OnInit {
 
         const marker = renderer.attr({
           fill,
+          originColor: fill,
+          selectColor: selectColor,
           stroke: strokeColor,
           'stroke-width': strokeWidth,
           cursor: 'pointer', // Set cursor style to indicate clickability
           'pointer-events': 'visible', // 이걸 해줘야 이벤트가 먹는다. 이것만 하면 안되고 zIndex를 조절해서 앞으로 나오게 해야한다.
-          zIndex: 5,
+          pointX: filteredData[i].x,
+          pointY: filteredData[i].y,
+          zIndex: 3,
         }).on('click', (e: any) => {
           e.stopPropagation();
+          console.log(e);
+          // 실제 포인트를 클릭 했을 때와 같은 ui로 동작하도록 코드를 추가함.
+          if(!(e.ctrlKey || e.metaKey)) {
+            this.resetMarkersColor();
+          }
 
-          console.log('click point', point, filteredData[i]);
+          const attributes = e.srcElement.attributes;
+          marker.attr({
+            fill: attributes.fill.nodeValue !== attributes.selectColor.nodeValue ?
+                  attributes.selectColor.nodeValue : attributes.originColor.nodeValue
+          });
 
         }).add(); //.toFront();
         // toFront() 함수를 사용하면 zoom 한 뒤에 tooltip보다 renderer가 위로 올라오는 문제가 발생한다.
@@ -260,6 +304,17 @@ export class BoostMarkerComponent implements OnInit {
 
   }
 
+  private resetMarkersColor() {
+    if(this.customMarkers?.length) {
+      for(const marker of this.customMarkers) {
+        if(marker?.element) {
+          marker.attr({
+            fill: marker.element.attributes.originColor.nodeValue
+          })
+        }
+      }
+    }
+  }
   private clearAllMarkers() {
     if(this.customMarkers.length) {
 
@@ -269,5 +324,29 @@ export class BoostMarkerComponent implements OnInit {
         }
       }
     }
+  }
+  setZoom() {
+    this.isZoom = !this.isZoom;
+  }
+  existSelectedPoints(x: number, y: number) {
+    const exist = this.selectedPoints.some((point: number[]) => {
+      if(x === point[0] && y === point[1]) {
+        return true;
+      }
+      return false;
+    });
+
+    return exist;
+  }
+  addSelectedPoint(x: number, y: number) {
+    this.selectedPoints.push([x,y]);
+  }
+  filterSelectedPoint(x: number, y: number) {
+    this.selectedPoints = this.selectedPoints.filter(point => {
+      if(x === point[0] && y === point[1]) {
+        return false;
+      }
+      return true;
+    })
   }
 }
