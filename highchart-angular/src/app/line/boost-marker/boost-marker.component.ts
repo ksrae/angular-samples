@@ -4,6 +4,25 @@ import HC_boost from 'highcharts/modules/boost';
 
 HC_boost(Highcharts);
 
+export interface ChartCustomMarkerModel {
+  type: 'circle' | 'square';
+  seriesId: string;
+  xMin?: number;
+  xMax?: number;
+  yMin?: number;
+  yMax?: number;
+  markerColor?: string;
+  markerSelectColor?: string;
+  markerSize?: number;
+  strokeColor?: string;
+  strokeWidth?: number;
+}
+export interface ChartCustomMarkerPointModel {
+  x: number;
+  y: number;
+  plotX: number;
+  plotY: number;
+}
 @Component({
   selector: 'app-boost-marker',
   templateUrl: './boost-marker.component.html',
@@ -16,6 +35,14 @@ export class BoostMarkerComponent implements OnInit {
   customMarkerRefresh = false;
   selectedPoints: number[][] = [];
   isZoom = true;
+  customMarkerOptionList : ChartCustomMarkerModel[]  = [
+    {
+      type: 'square',
+      seriesId: 'series1',
+      yMin: 90,
+      yMax: 100
+    }
+  ];
 
   ngOnInit(): void {
     console.time('line');
@@ -67,7 +94,8 @@ export class BoostMarkerComponent implements OnInit {
 
       series: [
         {
-          data: this.getData(100),
+          id: 'series1',
+          data: this.getData(100000),
           boostThreshold: 1,
           marker: { enabled: false }
         },
@@ -108,7 +136,13 @@ export class BoostMarkerComponent implements OnInit {
     console.log('chartLoad', e);
 
     const chart = this.chart ?? e.target;
-    this.drawingCustomMarker(chart, 'square', chart.series[0], 70);
+
+    if(this.customMarkerOptionList?.length) {
+      this.clearAllMarkers();
+      setTimeout(() => {
+        this.drawingCustomMarker(chart);
+      }, 0);
+    }
   }
   chartSelection(e: any) {
     console.log('chartSelection', e);
@@ -148,6 +182,7 @@ export class BoostMarkerComponent implements OnInit {
   }
   chartAddSeries(e: any) {
     console.log('chartAddSeries', e);
+    this.customMarkerRefresh = true;
   }
   chartRender(e: any) {
     console.log('chartRender', e);
@@ -155,7 +190,12 @@ export class BoostMarkerComponent implements OnInit {
     if(this.customMarkerRefresh) {
       this.customMarkerRefresh = false;
       const chart = this.chart ?? e.target;
-      this.drawingCustomMarker(chart, 'square', chart.series[0], 70);
+
+      this.clearAllMarkers();
+      setTimeout(() => {
+        this.drawingCustomMarker(chart);
+      }, 0);
+
     }
 
     // this.chart?.resetZoomButton?.toFront();
@@ -163,7 +203,7 @@ export class BoostMarkerComponent implements OnInit {
   chartClick(e: any) {
     console.log('chartClick', e);
   }
-  chartAfterprint(e: any) {
+  chartAfterprint(e: any) {``
     console.log('chartAfterprint', e);
   }
   chartRedraw(e: any) {
@@ -171,8 +211,7 @@ export class BoostMarkerComponent implements OnInit {
   }
   seriesHide(e: any) {
     console.log('seriesHide', e);
-    this.customMarkerRefresh = e.target?.visible;
-    this.clearAllMarkers();
+    this.customMarkerRefresh = true;
   }
   seriesMouseover(e: any) {
     // console.log('seriesMouseover', e);
@@ -218,89 +257,123 @@ export class BoostMarkerComponent implements OnInit {
 
     return arr;
   }
-  private drawingCustomMarker(
-    chart: any,
-    type: 'circle' | 'square',
-    series: any,
-    warningValue: number,
-    size: number = 10,
-    fill: string = 'red',
-    selectColor: string = 'grey',
-    strokeWidth: number = 1,
-    strokeColor: string = 'black',
-  ) {
+  private drawingCustomMarker(chart: any) {
+    if(this.customMarkerOptionList?.length) {
+      const filteredData: ChartCustomMarkerPointModel[] = [];
+      for(const customMarkerOption of this.customMarkerOptionList) {
+        if(customMarkerOption.seriesId) {
+          const series = chart.series.find((series: any) => customMarkerOption.seriesId === series.userOptions.id);
+          if(series?.visible === true) {
+            // filter points between min, max of axis.
+            series.yData.forEach((item: number, index: number) => {
+              const ymax = chart.yAxis[0].max;
+              const ymin = chart.yAxis[0].min;
 
-    this.clearAllMarkers();
+              const xmax = chart.xAxis[0].max;
+              const xmin = chart.xAxis[0].min;
 
-    if(series?.visible) {
-      // 우리는 point 값이 필요한대 series의 point에서 x값만 다루고 y값은 다루지 않기 때문에 아래와 같이 처리해야 함.
-      // ydata에서 필터 조건에 따라 맞는 포인트들의 index를 추려내서 series의 xData의 해당 index의 값을 가져온다.
-      const filteredData: any[] = series.yData.map((item: any, index: number) => {
-        if(item <= chart.yAxis[0].max && item >= chart.yAxis[0].min && item > warningValue) {
-          return {x: series.xData[index], y: item};
-        }
-        return undefined;
-      }).filter((item: any) => item !== undefined);
+              const yMax = !customMarkerOption.yMax ? ymax : ymax > customMarkerOption.yMax ? customMarkerOption.yMax: ymax;
+              const yMin = !customMarkerOption.yMin ? ymin : ymin < customMarkerOption.yMin ? customMarkerOption.yMin: ymin;
 
-      console.log({filteredData});
+              const xMax = !customMarkerOption.xMax ? xmax : xmax > customMarkerOption.xMax ? customMarkerOption.xMax: xmax;
+              const xMin = !customMarkerOption.xMin ? xmin : xmin < customMarkerOption.xMin ? customMarkerOption.xMin: xmin;
 
-      // series의 points에서 x값과 추출한 xData이 일치하는 point만 필터링 한다.
-      const filteredPoints = series.points.filter((point: any) => {
-        return filteredData.find((item: any) => {
-          return item.x === point.x ? true : false;
-        });
-      });
+              const plotX = chart.xAxis[0].toPixels(series.xData[index]);
+              const plotY = chart.yAxis[0].toPixels(item);
 
-      // 추출한 point들에 marker를 그려낸다.
-      for(let i=0; i < filteredPoints.length; i++) {
-        const point = filteredPoints[i];
-        console.log({point});
+              const x = series.xData[index];
+              const y = item;
 
-        const x = chart.plotLeft + point.plotX - size / 2;
-        const y = chart.plotTop + point.plotY - size / 2;
+              if(y <= yMax && y >= yMin && x <= xMax && x >= xMin) {
+                filteredData.push({x, y, plotX, plotY});
+              }
+            });
 
-        // console.log({point}, {x}, {y});
-        const renderer = type === 'circle' ? chart.renderer.circle(x + 2, y, size) : chart.renderer.rect(x, y, size, size);
+            const chunks: any[] = this.arrayChunk(filteredData);
 
-        const marker = renderer.attr({
-          fill,
-          originColor: fill,
-          selectColor: selectColor,
-          stroke: strokeColor,
-          'stroke-width': strokeWidth,
-          cursor: 'pointer', // Set cursor style to indicate clickability
-          'pointer-events': 'visible', // 이걸 해줘야 이벤트가 먹는다. 이것만 하면 안되고 zIndex를 조절해서 앞으로 나오게 해야한다.
-          pointX: filteredData[i].x,
-          pointY: filteredData[i].y,
-          zIndex: 3,
-        }).on('click', (e: any) => {
-          e.stopPropagation();
-          console.log(e);
-          // 실제 포인트를 클릭 했을 때와 같은 ui로 동작하도록 코드를 추가함.
-          if(!(e.ctrlKey || e.metaKey)) {
-            this.resetMarkersColor();
+            let i=0;
+
+            const markerTimer = setInterval(() => {
+              this.createMarker(chart, chunks[i], series, customMarkerOption);
+              i+=1;
+              if(i >= chunks.length) {
+                clearInterval(markerTimer);
+
+              }
+            }, 10);
+
+
+
+            // console.log('filteredData?.length', filteredData);
           }
+        };
+      } // for
 
-          const attributes = e.srcElement.attributes;
-          marker.attr({
-            fill: attributes.fill.nodeValue !== attributes.selectColor.nodeValue ?
-                  attributes.selectColor.nodeValue : attributes.originColor.nodeValue
-          });
-
-        }).add(); //.toFront();
-        // toFront() 함수를 사용하면 zoom 한 뒤에 tooltip보다 renderer가 위로 올라오는 문제가 발생한다.
-        // resetZoomButton도 rednerer 뒤에 가려지는데 this.chart?.resetZoomButton?.toFront(); 이걸 쓰면 해결되긴 한다.
-
-
-        this.customMarkers.push(marker);
-
-        // 처리
-        // 1. 원하는 포인트만 marker를 추가할 수 있다.
-        // 2. zoom 에 대응할 수 있다.
-        // 3. click도 가능하다.
-        // 4. tooltip과 resetZoomButton 보다 아래로 내려가게 하면서도 click 이벤트를 유지하려면 'pointer-events': 'visible'을 설정하고 zIndex를 조절한다.
-      }
     }
+
+  }
+
+  private createMarker(chart: any, data: ChartCustomMarkerPointModel[], series: any, option: ChartCustomMarkerModel) {
+    const markerSize = option.markerSize ?? 10;
+
+    data.forEach(item => {
+
+      // const x = chart.plotLeft + data.plotX - customMarkerOption.markerSize / 2;
+      // const y = chart.plotTop + data.plotY - customMarkerOption.markerSize / 2;
+
+      const x = item.plotX - (markerSize / 2);
+      const y = item.plotY - (markerSize / 2);
+
+      const renderer = option.type === 'circle' ? chart.renderer.circle(x + 5, y, markerSize - 2) : chart.renderer.rect(x - 2, y, markerSize + 3, markerSize + 3);
+
+      const marker = renderer.attr({
+        fill: option.markerColor ?? 'red',
+        originColor: option.markerColor ?? 'red',
+        selectColor: option.markerSelectColor ?? 'grey',
+        stroke: option.strokeColor ?? 'black',
+        'stroke-width': option.strokeWidth ?? 1,
+        cursor: 'pointer',
+        'pointer-events': 'visible',
+        pointX: item.x,
+        pointY: item.y,
+        zIndex: 4, // series.userOptions.zIndex, // 3-4 is good, less then 3-4 makes no fired click event, too high zIndex makes marker is covered to tooltip.
+      }).on('click', (e: any) => {
+        e.stopPropagation();
+        console.log('click', {item});
+        // this is for controling click custom marker ui.
+        if(!e.ctrlKey || !e.metaKey) {
+          this.resetMarkersColor();
+        }
+
+        const attributes = e.srcElement.attributes;
+
+        marker.attr({
+          fill: attributes.fill.nodeValue !== attributes.selectColor.nodeValue ?
+                attributes.selectColor.nodeValue : attributes.originColor.nodeValue
+        });
+
+        // fires seriesPointClickEvent as well
+        // if(this.isTypeSelected('Tooltip')) {
+        //   const filteredPoint = series.points.find((point: any) => {
+        //     return data.x === point.x && data.y === point?.y ? true : false;
+        //   });
+
+        //   if(filteredPoint) {
+        //     this.tooltipPointEmitter.emit({type: 'multi', point: filteredPoint});
+        //   }
+        // }
+
+      }).on('contextmenu', (e: any) => {
+        console.log('contextmenu', e);
+        e.preventDefault();
+
+      }).add();
+
+      this.customMarkers.push(marker);
+
+    });
+
+
 
   }
 
@@ -324,6 +397,7 @@ export class BoostMarkerComponent implements OnInit {
         }
       }
     }
+    this.customMarkers = [];
   }
   setZoom() {
     this.isZoom = !this.isZoom;
@@ -348,5 +422,12 @@ export class BoostMarkerComponent implements OnInit {
       }
       return true;
     })
+  }
+  private arrayChunk(arr: ChartCustomMarkerPointModel[], chunkSize: number = 1000): ChartCustomMarkerPointModel[][] {
+    const chunks: ChartCustomMarkerPointModel[][] = [];
+    for(let i=0; i < arr.length; i+= chunkSize) {
+      chunks.push(arr.slice(i, i+chunkSize));
+    }
+    return chunks;
   }
 }
