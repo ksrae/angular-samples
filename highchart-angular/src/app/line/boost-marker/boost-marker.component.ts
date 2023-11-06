@@ -95,7 +95,7 @@ export class BoostMarkerComponent implements OnInit {
       series: [
         {
           id: 'series1',
-          data: this.getData(100000),
+          data: this.getData(1000000),
           boostThreshold: 1,
           marker: { enabled: false }
         },
@@ -288,8 +288,8 @@ export class BoostMarkerComponent implements OnInit {
                 filteredData.push({x, y, plotX, plotY});
               }
             });
-
-            const chunks: any[] = this.arrayChunk(filteredData);
+            // this.createMarker(chart, filteredData, series, customMarkerOption);
+            const chunks: any[] = this.arrayChunk(filteredData, 10000);
 
             let i=0;
 
@@ -300,7 +300,7 @@ export class BoostMarkerComponent implements OnInit {
                 clearInterval(markerTimer);
 
               }
-            }, 10);
+            });
 
 
 
