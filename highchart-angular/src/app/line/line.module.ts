@@ -33,6 +33,7 @@ import { BoostComponent } from './boost/boost.component';
 import { ZoomBoostComponent } from './zoom-boost/zoom-boost.component';
 import { ZoomBoostAutoComponent } from './zoom-boost-auto/zoom-boost-auto.component';
 import { BoostMarkerComponent } from './boost-marker/boost-marker.component';
+import { ZoomInOutComponent } from './zoom-in-out/zoom-in-out.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { BoostMarkerComponent } from './boost-marker/boost-marker.component';
     BoostMarkerComponent,
     ZoomBoostComponent,
     ZoomBoostAutoComponent,
+    ZoomInOutComponent,
 
   ],
   imports: [
