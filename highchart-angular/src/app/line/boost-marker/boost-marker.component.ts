@@ -80,17 +80,19 @@ export class BoostMarkerComponent implements OnInit {
         //seriesThreshold: 1
       },
 
-      // tooltip: {
-      //   useHTML: true,
-      //   formatter: (e: Highcharts.TooltipFormatterContextObject) => {
-      //     console.log(e);
-      //     const point = e.point;
-      //     const seriesColor = point.series.color;
-      //     const tooltipContent = `<div class="highcharts-tooltip" style="color: ${seriesColor};">${point.name}: ${point.y}</div>`;
-      //     return tooltipContent;
-      //   },
-      //   zIndex: 9999,
-      // },
+      tooltip: {
+        pointFormat: `<div style="color: {point.series.color};">{point.id}: {point.y}</div>`,
+        
+        // useHTML: true,
+        // formatter: (e: Highcharts.TooltipFormatterContextObject) => {
+        //   console.log(e);
+        //   const point = e.point;
+        //   const seriesColor = point.series.color;
+        //   const tooltipContent = `<div class="highcharts-tooltip" style="color: ${seriesColor};">${point.name}: ${point.y}</div>`;
+        //   return tooltipContent;
+        // },
+        // zIndex: 9999,
+      },
 
       series: [
         {
