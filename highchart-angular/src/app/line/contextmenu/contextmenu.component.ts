@@ -9,7 +9,6 @@ import * as Highcharts from 'highcharts';
 })
 export class ContextMenuComponent implements OnInit {
   chart: any;
-  selectPoints = [];
   categories = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   ngOnInit(): void {
