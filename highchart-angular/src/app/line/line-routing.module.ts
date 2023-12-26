@@ -31,6 +31,7 @@ import { BoostComponent } from './boost/boost.component';
 import { ZoomBoostComponent } from './zoom-boost/zoom-boost.component';
 import { ZoomBoostAutoComponent } from './zoom-boost-auto/zoom-boost-auto.component';
 import { BoostMarkerComponent } from './boost-marker/boost-marker.component';
+import { ZoomInOutComponent } from './zoom-in-out/zoom-in-out.component';
 
 const routes: Routes = [
   { path: '', component: LineComponent, children: [
@@ -64,6 +65,7 @@ const routes: Routes = [
     { path: 'boost-marker', component: BoostMarkerComponent},
     { path: 'zoom-boost', component: ZoomBoostComponent},
     { path: 'zoom-boost-auto', component: ZoomBoostAutoComponent},
+    { path: 'zoom-in-out', component: ZoomInOutComponent},
   ]},
 
 ];
