@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   standalone: true,
@@ -20,10 +20,10 @@ export class RouteLazyLoadComponent {
   searchForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+
   ) {
-    this.searchForm = this.fb.group({
-      item: ['', [Validators.required]]
+    this.searchForm = new FormGroup({
+      item: new FormControl('', [Validators.required])
     });
 
     this.searchForm.valueChanges.subscribe(observer => {

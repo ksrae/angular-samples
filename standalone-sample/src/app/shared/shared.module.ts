@@ -1,12 +1,13 @@
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from "@angular/core";
+import { SharedComponent } from './shared.component';
 
 
 
 @NgModule({
   declarations: [
-
+    SharedComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -14,7 +15,8 @@ import { NgModule } from "@angular/core";
   ],
   exports: [
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    SharedComponent
   ]
 })
 export class SharedModule {}
