@@ -37,19 +37,6 @@ export class WorkerController {
       }
     });
   }
-  // setNewSeries(chartOptionsSeries: any[], seriesList: any[], zIndex: number, defaultZIndex: number) {
-  //   this.postMessage({
-  //     type: 'chart',
-  //     name: 'setNewSeries',
-  //     message: {
-  //       optionSeries: chartOptionsSeries,
-  //       newSeries: seriesList,
-  //       zIndex,
-  //       defaultZIndex
-  //     }
-  //   });
-  // }
-
 
   private postMessage(data: any) {
     // json -> string -> buffer 형태로 변환

@@ -1,0 +1,13 @@
+<ng-container>
+  <a [routerLink]="['/tab1']" routerLinkActive="router-link-active">
+    TAB1
+    <!-- <router-outlet name="popupType"></router-outlet> -->
+  </a>
+  <a [routerLink]="['/tab2']" routerLinkActive="router-link-active">
+    TAB2
+    <!-- <router-outlet name="popupType"></router-outlet> -->
+  </a>
+</ng-container>
+
+<router-outlet></router-outlet>
+<router-outlet name="popupType"></router-outlet>
