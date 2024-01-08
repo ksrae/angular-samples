@@ -67,7 +67,7 @@
             ],
             "scripts": [
               {
-                "input": "./scripts/postbuild-bundler.js",
+                "input": "./postbuild-bundler.js",
                 "bundleName": "bundle",
                 "inject": false
               }
