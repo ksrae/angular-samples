@@ -1,0 +1,20 @@
+dialog {
+  padding: 20px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: #3498db;
+  }
+
+  button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
