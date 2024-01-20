@@ -8,10 +8,7 @@
 
 # Node
 /node_modules
-<<<<<<< HEAD
 /projects/mylib/node_modules
-=======
->>>>>>> e8d2970e183be32e712c7ca7f65205dd6d8fee09
 npm-debug.log
 yarn-error.log
 
