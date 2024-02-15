@@ -13,7 +13,7 @@ import { FocusLastDirective } from './input-scroll.directive';
     ReactiveFormsModule,
     FocusLastDirective
   ],
-  template: `<input type="text" appFocusLast  [formControl]="fm">`,
+  template: `<input type="text" appFocusLast  [formControl]="fm"> <input type="text">`,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
