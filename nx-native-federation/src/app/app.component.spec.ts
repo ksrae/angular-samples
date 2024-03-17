@@ -15,13 +15,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome angular17-nx'
+      'Welcome nx-native-federation'
     );
   });
 
-  it(`should have as title 'angular17-nx'`, () => {
+  it(`should have as title 'nx-native-federation'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular17-nx');
+    expect(app.title).toEqual('nx-native-federation');
   });
 });
